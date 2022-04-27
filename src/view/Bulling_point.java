@@ -5,6 +5,17 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 /**
  *
  * @author ADMIN
@@ -51,6 +62,11 @@ public class Bulling_point extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
 
@@ -102,6 +118,11 @@ public class Bulling_point extends javax.swing.JFrame {
         bntrefresh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         bntrefresh.setForeground(new java.awt.Color(255, 255, 255));
         bntrefresh.setText("Refresh");
+        bntrefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bntrefreshActionPerformed(evt);
+            }
+        });
 
         tbbang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,8 +293,73 @@ public class Bulling_point extends javax.swing.JFrame {
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
         // TODO add your handling code here:
-
+        int result = JOptionPane.showConfirmDialog(null,"Bạn có chắc chắn muốn xóa không");
+        if(result == 0 ){
+            int position = tbbang.getSelectedRow();
+            String data = tbbang.getModel().getValueAt(position, 0).toString();
+              try{
+                Connection connection = DBConnection.getConnection();
+                String query = "DELETE FROM dbo.[minisupermarket] WHERE PRODID = ? ";
+                PreparedStatement ps = connection.prepareStatement(query);
+                ps.setString(1,data);
+                ps.executeUpdate();
+                showDuLieu();
+                DBConnection.closeConnection(connection);
+                JOptionPane.showMessageDialog(null,"Xóa thành công");
+        
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }                    
     }//GEN-LAST:event_btnclearActionPerformed
+    
+    
+     public void resetForm(){
+        txtbillid.setText("");
+        txtname.setText("");
+        txtquantity.setText("");
+     
+    }
+    
+    private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
+        // TODO add your handling code here:
+        resetForm();
+    }//GEN-LAST:event_bntrefreshActionPerformed
+
+    
+    private void showDuLieu(){
+        try{
+            tbbang.removeAll();
+            String[] arr = {"BILLID", "NAME", "QUANTITY"};
+            DefaultTableModel model = new DefaultTableModel(arr,0);
+            tbbang.setModel(model);
+            Connection connection = DBConnection.getConnection();
+            String query = "SELECT *FROM dbo.[minisupermarket]";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Vector vector = new Vector();
+                vector.add(rs.getString("PRODID"));
+                vector.add(rs.getString("PRODNAME"));
+                vector.add(rs.getString("PRODQTY"));
+             
+                
+                model.addRow(vector);
+
+            }
+            //đóng kết nối 
+            DBConnection.closeConnection(connection);
+            tbbang.setModel((TableModel) model);
+        }catch(SQLException ex){
+           Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE,null,ex);
+           
+        }
+    }
+    
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        // TODO add your handling code here:
+        showDuLieu();
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
