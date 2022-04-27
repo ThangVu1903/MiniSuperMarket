@@ -35,6 +35,12 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -87,6 +93,53 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 102, 0));
+        jButton1.setText("EDIT");
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 102, 0));
+        jButton2.setText("ADD");
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 102, 0));
+        jButton3.setText("CLEAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 102, 0));
+        jButton4.setText("DELETE");
+
+        jTable1.setBackground(new java.awt.Color(255, 255, 255));
+        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID", "NAME", "DESCRIPTION"
+            }
+        ));
+        jTable1.setGridColor(new java.awt.Color(120, 120, 120));
+        jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(new java.awt.Color(255, 102, 0));
+        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        jTable1.setShowGrid(true);
+        jScrollPane1.setViewportView(jTable1);
+
         jLabel8.setBackground(new java.awt.Color(240, 240, 240));
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 0));
@@ -104,23 +157,36 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(107, 107, 107)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(73, 73, 73)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45)
+                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(122, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,9 +203,17 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(379, 379, 379))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
         );
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -163,7 +237,7 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
 
@@ -194,6 +268,10 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -231,6 +309,10 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -239,6 +321,8 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
