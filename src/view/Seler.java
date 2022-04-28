@@ -42,6 +42,8 @@ public class Seler extends javax.swing.JFrame {
         btnclear = new javax.swing.JButton();
         btnedit = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        sellertable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,6 +103,23 @@ public class Seler extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 51, 51));
         jLabel8.setText("SELLERS LIST");
 
+        sellertable.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        sellertable.setForeground(new java.awt.Color(255, 51, 0));
+        sellertable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "NAME", "PASSWORD", "GENDER"
+            }
+        ));
+        sellertable.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        sellertable.setSelectionBackground(new java.awt.Color(255, 102, 51));
+        jScrollPane1.setViewportView(sellertable);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -142,8 +161,11 @@ public class Seler extends javax.swing.JFrame {
                                 .addGap(67, 67, 67)
                                 .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(65, 65, 65)
-                        .addComponent(btnclear)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                        .addComponent(btnclear))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +198,9 @@ public class Seler extends javax.swing.JFrame {
                     .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel8)
-                .addContainerGap(268, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -273,6 +297,8 @@ public class Seler extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable sellertable;
     private javax.swing.JTextField txtpassword;
     private javax.swing.JTextField txtsellerid;
     private javax.swing.JTextField txtsellername;
