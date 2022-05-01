@@ -4,17 +4,52 @@
  */
 package view;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JProgressBar;
+
 /**
  *
  * @author Administrator
  */
 public class InterfaceLoadForm extends javax.swing.JFrame {
-
+    pbThread pThread;
     /**
      * Creates new form LoginForm
      */
     public InterfaceLoadForm() {
         initComponents();
+        setVisible(true);
+        pThread = new pbThread(jProgressBar337); 
+        pThread.start();
+        
+    }
+    class pbThread extends Thread{
+        JProgressBar pb;
+        InterfaceLoadForm itForm;
+
+        public pbThread(JProgressBar progressBar) {
+            progressBar = jProgressBar337;
+        }
+        public void run(){
+            int min =0;
+            int max = 100;
+            jProgressBar337.setMaximum(min);
+            jProgressBar337.setMaximum(max);
+            jProgressBar337.setValue(0);
+             
+            for(int i = min ;i<= max ;i++){
+                try {
+                    LoadingLabel337.setText(Integer.toString(i)+"%");
+                    sleep(50);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(InterfaceLoadForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+               
+            }
+            
+        }
+        
     }
 
     /**
@@ -30,6 +65,7 @@ public class InterfaceLoadForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jProgressBar337 = new javax.swing.JProgressBar();
         jLabel3 = new javax.swing.JLabel();
+        LoadingLabel337 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -41,36 +77,44 @@ public class InterfaceLoadForm extends javax.swing.JFrame {
         jLabel1.setText("FAMILY POINT SUPERMARKET");
 
         jProgressBar337.setBackground(new java.awt.Color(255, 255, 255));
-        jProgressBar337.setForeground(new java.awt.Color(153, 255, 204));
-        jProgressBar337.setStringPainted(true);
+        jProgressBar337.setForeground(new java.awt.Color(255, 204, 51));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("D:\\THANG\\HK2\\LapTrinhJavaNangCao\\LyThuyet\\Supermarket\\src\\image\\shopping-cart (1).png")); // NOI18N
+
+        LoadingLabel337.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
+        LoadingLabel337.setForeground(new java.awt.Color(255, 255, 255));
+        LoadingLabel337.setText("%");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jProgressBar337, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(282, 282, 282)
+                        .addComponent(LoadingLabel337))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel1)))
-                .addContainerGap(128, Short.MAX_VALUE))
+                        .addGap(239, 239, 239)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 123, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(96, 96, 96))
+            .addComponent(jProgressBar337, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
+                .addGap(57, 57, 57)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
-                .addComponent(jProgressBar337, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
+                .addComponent(LoadingLabel337)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jProgressBar337, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -87,6 +131,7 @@ public class InterfaceLoadForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -120,15 +165,20 @@ public class InterfaceLoadForm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InterfaceLoadForm().setVisible(true);
+                InterfaceLoadForm itForm = new InterfaceLoadForm();
+                if(LoadingLabel337.getText() == "100%"){
+                    new LoginForm().setVisible(true);
+                    itForm.dispose();
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel LoadingLabel337;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JProgressBar jProgressBar337;
+    public javax.swing.JProgressBar jProgressBar337;
     // End of variables declaration//GEN-END:variables
 }

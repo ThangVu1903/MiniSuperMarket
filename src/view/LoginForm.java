@@ -4,6 +4,8 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -140,6 +142,11 @@ public class LoginForm extends javax.swing.JFrame {
         LoginBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         LoginBtn337.setForeground(new java.awt.Color(255, 255, 255));
         LoginBtn337.setText("Login");
+        LoginBtn337.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginBtn337ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Castellar", 2, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
@@ -151,6 +158,11 @@ public class LoginForm extends javax.swing.JFrame {
         ClearBtn338.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         ClearBtn338.setForeground(new java.awt.Color(255, 255, 255));
         ClearBtn338.setText("Clear");
+        ClearBtn338.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtn338ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -252,6 +264,30 @@ public class LoginForm extends javax.swing.JFrame {
 
         System.exit(0);
     }//GEN-LAST:event_ExitBtn337ActionPerformed
+
+    private void LoginBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtn337ActionPerformed
+        String nameTf = UserNameTF337.getText();
+        String passTf = PassTF337.getText();
+        StringBuilder sb = new StringBuilder();
+        
+        if(nameTf.equals("")){
+            sb.append("Username is not empty");
+        }
+        if(passTf.equals("")){
+            sb.append("\nPasssword is not empty");
+        }
+
+        if(sb.length()>0){
+            JOptionPane.showMessageDialog(this, sb.toString(),"Invalidation",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+    }//GEN-LAST:event_LoginBtn337ActionPerformed
+
+    private void ClearBtn338ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtn338ActionPerformed
+        UserNameTF337.setText("");
+        PassTF337.setText("");
+    }//GEN-LAST:event_ClearBtn338ActionPerformed
 
     /**
      * @param args the command line arguments
