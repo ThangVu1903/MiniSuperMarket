@@ -96,6 +96,11 @@ public class Bulling_point extends javax.swing.JFrame {
         btnadd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
         btnadd.setText("Add to bill");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
 
         btnclear.setBackground(new java.awt.Color(255, 102, 0));
         btnclear.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -360,6 +365,69 @@ public class Bulling_point extends javax.swing.JFrame {
         // TODO add your handling code here:
         showDuLieu();
     }//GEN-LAST:event_formComponentShown
+
+    private boolean checkTrungBillid(){
+        try{
+            Connection connection = DBConnection.getConnection();
+            String query = "SELECT *FROM dbo.[minisupermarket] WHERE PRODID = ?";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,txtbillid.getText());
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+               return true;
+            }
+            //đóng kết nối 
+            DBConnection.closeConnection(connection);
+            tbbang.setModel((TableModel) model);
+        }catch(SQLException ex){
+           Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE,null,ex);
+           
+        }
+        return false;
+    }
+    
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        // TODO add your handling code here:
+           if(txtbillid.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Billid không được rỗng");
+            txtbillid.requestFocus();
+            return;
+        }else if(txtname.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Tên không được rỗng");
+            txtname.requestFocus();
+            return;
+        }else if(txtquantity.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Số lượng không được rỗng");
+            txtquantity.requestFocus();
+            return;
+        }
+        
+        //trùng mã vật chất
+        
+        if(checkTrungBillid() == true){
+            JOptionPane.showMessageDialog(null,"Mã vật chất này đã tồn tại");
+            txtbillid.requestFocus();
+            return;
+        }else{
+            try{
+            Connection connection = DBConnection.getConnection();
+            String query = "INSERT INTO dbo.quanlycosovatchat(PRODID, PRODNAME, PRODQRY)"
+                        + "VALUES(?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setString(1,txtbillid.getText());
+            ps.setString(2,txtname.getText());
+            ps.setString(3,txtquantity.getText());
+            
+            ps.executeUpdate();
+            showDuLieu();
+            DBConnection.closeConnection(connection);
+            JOptionPane.showMessageDialog(null,"Thêm thành công");
+        
+        }catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        }
+    }//GEN-LAST:event_btnaddActionPerformed
 
     /**
      * @param args the command line arguments
