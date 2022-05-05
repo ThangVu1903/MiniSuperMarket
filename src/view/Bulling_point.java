@@ -304,7 +304,7 @@ public class Bulling_point extends javax.swing.JFrame {
             String data = tbbang.getModel().getValueAt(position, 0).toString();
               try{
                 Connection connection = DBConnection.getConnection();
-                String query = "DELETE FROM dbo.[minisupermarket] WHERE PRODID = ? ";
+                String query = "DELETE FROM dbo.[minisupermarket_1] WHERE PRODID = ? ";
                 PreparedStatement ps = connection.prepareStatement(query);
                 ps.setString(1,data);
                 ps.executeUpdate();
@@ -339,7 +339,7 @@ public class Bulling_point extends javax.swing.JFrame {
             DefaultTableModel model = new DefaultTableModel(arr,0);
             tbbang.setModel(model);
             Connection connection = DBConnection.getConnection();
-            String query = "SELECT *FROM dbo.[minisupermarket]";
+            String query = "SELECT *FROM dbo.[minisupermarket_1]";
             PreparedStatement ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
@@ -367,9 +367,10 @@ public class Bulling_point extends javax.swing.JFrame {
     }//GEN-LAST:event_formComponentShown
 
     private boolean checkTrungBillid(){
+        DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
         try{
             Connection connection = DBConnection.getConnection();
-            String query = "SELECT *FROM dbo.[minisupermarket] WHERE PRODID = ?";
+            String query = "SELECT *FROM dbo.[minisupermarket_1] WHERE PRODID = ?";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1,txtbillid.getText());
             ResultSet rs = ps.executeQuery();
@@ -411,7 +412,7 @@ public class Bulling_point extends javax.swing.JFrame {
         }else{
             try{
             Connection connection = DBConnection.getConnection();
-            String query = "INSERT INTO dbo.quanlycosovatchat(PRODID, PRODNAME, PRODQRY)"
+            String query = "INSERT INTO dbo.minisupermarket_1(PRODID, PRODNAME, PRODQTY)"
                         + "VALUES(?,?,?)";
             PreparedStatement ps = connection.prepareStatement(query);
             ps.setString(1,txtbillid.getText());
