@@ -4,6 +4,14 @@
  */
 package view;
 
+import java.beans.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.JDBCType;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author HP
@@ -16,6 +24,10 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     public DanhMucQuanLy() {
         initComponents();
     }
+    Connection Con = null;
+    Statement St = null;
+    ResultSet Rs = null;
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,18 +41,18 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        CatId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        CatName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        CatDesc = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AddBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        CategoryTbl = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -57,11 +69,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 102, 0));
         jLabel2.setText("MANAGE CATEGORIES");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        CatId.setBackground(new java.awt.Color(255, 255, 255));
+        CatId.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                CatIdActionPerformed(evt);
             }
         });
 
@@ -73,11 +85,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("NAME");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        CatName.setBackground(new java.awt.Color(255, 255, 255));
+        CatName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CatName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                CatNameActionPerformed(evt);
             }
         });
 
@@ -85,11 +97,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("DESCRIPTION");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        CatDesc.setBackground(new java.awt.Color(255, 255, 255));
+        CatDesc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CatDesc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                CatDescActionPerformed(evt);
             }
         });
 
@@ -98,10 +110,15 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
         jButton1.setText("EDIT");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jButton2.setText("ADD");
+        AddBtn.setBackground(new java.awt.Color(255, 255, 255));
+        AddBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        AddBtn.setForeground(new java.awt.Color(255, 102, 0));
+        AddBtn.setText("ADD");
+        AddBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddBtnMouseClicked(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -118,10 +135,10 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 102, 0));
         jButton4.setText("DELETE");
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        CategoryTbl.setBackground(new java.awt.Color(255, 255, 255));
+        CategoryTbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        CategoryTbl.setForeground(new java.awt.Color(0, 0, 0));
+        CategoryTbl.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -132,13 +149,13 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                 "ID", "NAME", "DESCRIPTION"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(120, 120, 120));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 102, 0));
-        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        CategoryTbl.setGridColor(new java.awt.Color(120, 120, 120));
+        CategoryTbl.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        CategoryTbl.setRowHeight(25);
+        CategoryTbl.setSelectionBackground(new java.awt.Color(255, 102, 0));
+        CategoryTbl.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        CategoryTbl.setShowGrid(true);
+        jScrollPane1.setViewportView(CategoryTbl);
 
         jLabel8.setBackground(new java.awt.Color(240, 240, 240));
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
@@ -158,7 +175,7 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
@@ -172,7 +189,7 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(CatDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2))
@@ -180,11 +197,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                                 .addGap(61, 61, 61)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CatId, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(45, 45, 45)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(CatName, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(122, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -196,19 +213,19 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CatId, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CatName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CatDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(AddBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -257,21 +274,52 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void CatIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_CatIdActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void CatNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_CatNameActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void CatDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatDescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_CatDescActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    public void SelectSeller()
+    {
+        try {
+            Con = DriverManager.getConnection(url);
+            St = (Statement) Con.createStatement();
+            Rs = St.executeQuery(" select * from User1.CATEGORY");
+            CategoryTbl.setModel(DbUtils.res);
+             } catch (Exception e) {
+        }
+    }
+    private void AddBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseClicked
+        if (CatId.getText().isEmpty() || CatName.getText().isEmpty() || CatDesc.getText().isEmpty() ) {
+            JOptionPane.showMessageDialog(this, "Missing Ìnoprmation");
+        } else {
+            try {
+                Con = DriverManager.getConnection(JDBCType);
+                PreparedStatement add = Con.prepareStatement("insert into CategoryTbl values(?,?,?)");
+                    add.setInt(1, Integer.valueOf(CatId.getText()));
+                    add.setString(2, CatName.getText());
+                    add.setString(3, CatDesc.getText());
+                    
+                    int row = add.executeUpdate();
+                    JOptionPane.showMessageDialog(this, "Category added Successfully");
+                    Con.close();
+//                    Sfgjkfjd
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_AddBtnMouseClicked
 
     /**
      * @param args the command line arguments
@@ -309,8 +357,12 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddBtn;
+    private javax.swing.JTextField CatDesc;
+    private javax.swing.JTextField CatId;
+    private javax.swing.JTextField CatName;
+    private javax.swing.JTable CategoryTbl;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -322,9 +374,5 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
