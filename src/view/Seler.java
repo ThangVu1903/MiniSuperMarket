@@ -4,19 +4,47 @@
  */
 package view;
 
+import Model.Sellers;
+import Service.SellerService;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
  */
 public class Seler extends javax.swing.JFrame {
-
+    SellerService slservice;
+    DefaultTableModel defaultTableModel;
     /**
      * Creates new form Seler
      */
     public Seler() {
         initComponents();
-    }
+        slservice = new SellerService();
+        
+        defaultTableModel = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+            
+        };
+        sellertable.setModel(defaultTableModel);
+        
+        defaultTableModel.addColumn("ID");
+        defaultTableModel.addColumn("NAME");
+        defaultTableModel.addColumn("PASSWORD");
+        defaultTableModel.addColumn("GENDER");
 
+        
+        setTableData(slservice.getAllSellers());
+    }
+private void setTableData(List<Sellers> sellers){
+        for (Sellers seller : sellers){
+            defaultTableModel.addRow(new Object[]{seller.getId()  , seller.getName() , seller.getPassword() , seller.getGender()});
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
