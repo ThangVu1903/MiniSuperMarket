@@ -37,10 +37,10 @@ public class SellerDao {
         return sl_diem;  
     }
     public Sellers getSellerById(int id){
-        java.sql.Connection connection = Connection.getJDBCConection();
+        java.sql.Connection con = Connection.getJDBCConection();
         String sql = "select * from data where id = ?";
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
@@ -55,5 +55,52 @@ public class SellerDao {
             e.printStackTrace();
         }
         return null;
+    }
+    public void addSeller(Sellers seller) throws SQLException {
+        java.sql.Connection con = Connection.getJDBCConection();
+        String sql = "INSERT INTO seller (ID, NAME, PASSWORD, GENDER) VALUES(?,?,?,?)";
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, seller.getId());
+            pstmt.setString(2, seller.getName());
+            pstmt.setString(3, seller.getPassword());
+            pstmt.setString(4, seller.getGender());
+            
+
+            int rs = pstmt.executeUpdate();
+            System.out.println(rs);
+            
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void editSeller(Sellers seller) throws SQLException {
+        java.sql.Connection con = Connection.getJDBCConection();
+        String sql = "UPDATE seller SET ID = ?,NAME = ?,PASSWORD = ?, GENDER = ?";
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, seller.getId());
+            pstmt.setString(2, seller.getName());
+            pstmt.setString(3, seller.getPassword());
+            pstmt.setString(4, seller.getGender());
+            int rs = pstmt.executeUpdate();
+            System.out.println(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void deleteSeller(int id) throws SQLException {
+        java.sql.Connection con = Connection.getJDBCConection();
+
+        String sql = "delete from seller where ID= ?";
+
+        try {
+            PreparedStatement preparedStatement = con.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            int rs = preparedStatement.executeUpdate();
+            System.out.println(rs);
+        } catch (SQLException e) {
+        }
     }
 }

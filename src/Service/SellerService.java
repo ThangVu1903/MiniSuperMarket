@@ -6,6 +6,7 @@ package Service;
 
 import Dao.SellerDao;
 import Model.Sellers;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -23,5 +24,14 @@ public class SellerService {
     }
     public Sellers getSellerById(int id){
         return sl.getSellerById(id);
+    }
+    public void addSeller(Sellers sler) throws SQLException {
+        sl.addSeller(sler);
+    }
+    public void editSeller(Sellers sler) throws SQLException {
+        sl.editSeller(sler);
+    }
+    public void deleteSeller(int id) throws SQLException {
+        sl.deleteSeller(id);
     }
 }
