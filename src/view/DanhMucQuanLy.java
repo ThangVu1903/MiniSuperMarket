@@ -11,6 +11,7 @@ import java.sql.JDBCType;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,11 +24,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
      */
     public DanhMucQuanLy() {
         initComponents();
+        SelectSeller();
     }
     Connection Con = null;
     Statement St = null;
     ResultSet Rs = null;
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -124,6 +125,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 102, 0));
         jButton3.setText("CLEAR");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -134,6 +140,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 102, 0));
         jButton4.setText("DELETE");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+        });
 
         CategoryTbl.setBackground(new java.awt.Color(255, 255, 255));
         CategoryTbl.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -155,6 +166,11 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         CategoryTbl.setSelectionBackground(new java.awt.Color(255, 102, 0));
         CategoryTbl.setSelectionForeground(new java.awt.Color(255, 255, 255));
         CategoryTbl.setShowGrid(true);
+        CategoryTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CategoryTblMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(CategoryTbl);
 
         jLabel8.setBackground(new java.awt.Color(240, 240, 240));
@@ -290,36 +306,57 @@ public class DanhMucQuanLy extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    public void SelectSeller()
-    {
+    public final void SelectSeller() {
         try {
             Con = DriverManager.getConnection(url);
+
             St = (Statement) Con.createStatement();
-            Rs = St.executeQuery(" select * from User1.CATEGORY");
-            CategoryTbl.setModel(DbUtils.res);
-             } catch (Exception e) {
+            Rs = St.executeQuery("Select * form  User1.SELLERTBL");
+            CategoryTbl.setModel(DbUtils.resultSetToTableModel);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     private void AddBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddBtnMouseClicked
-        if (CatId.getText().isEmpty() || CatName.getText().isEmpty() || CatDesc.getText().isEmpty() ) {
+        if (CatId.getText().isEmpty() || CatName.getText().isEmpty() || CatDesc.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Missing Ìnoprmation");
         } else {
             try {
                 Con = DriverManager.getConnection(JDBCType);
                 PreparedStatement add = Con.prepareStatement("insert into CategoryTbl values(?,?,?)");
-                    add.setInt(1, Integer.valueOf(CatId.getText()));
-                    add.setString(2, CatName.getText());
-                    add.setString(3, CatDesc.getText());
-                    
-                    int row = add.executeUpdate();
-                    JOptionPane.showMessageDialog(this, "Category added Successfully");
-                    Con.close();
-//                    Sfgjkfjd
+                add.setInt(1, Integer.valueOf(CatId.getText()));
+                add.setString(2, CatName.getText());
+                add.setString(3, CatDesc.getText());
+
+                int row = add.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Category added Successfully");
+                Con.close();
+                SelectSeller();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
     }//GEN-LAST:event_AddBtnMouseClicked
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        CatId.setText("");
+        CatName.setText("");
+        CatDesc.setText("");
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void CategoryTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CategoryTblMouseClicked
+        DefaultTableModel model = (DefaultTableModel) CategoryTbl.getModel();
+        int MyIndex = CategoryTbl.getSelectedRow();
+        CatId.setText(model.getValueAt(MyIndex, 0).toString());
+        CatName.setText(model.getValueAt(MyIndex, 1).toString());
+        CatDesc.setText(model.getValueAt(MyIndex, 2).toString());
+
+    }//GEN-LAST:event_CategoryTblMouseClicked
 
     /**
      * @param args the command line arguments
