@@ -78,7 +78,6 @@ private void setTableData(List<Sellers> sellers){
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         sellertable = new javax.swing.JTable();
-        btnedit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -142,7 +141,7 @@ private void setTableData(List<Sellers> sellers){
         btnupdate.setBackground(new java.awt.Color(0, 255, 153));
         btnupdate.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnupdate.setForeground(new java.awt.Color(255, 51, 51));
-        btnupdate.setText("UPDATE");
+        btnupdate.setText("EDIT");
         btnupdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnupdateActionPerformed(evt);
@@ -175,16 +174,6 @@ private void setTableData(List<Sellers> sellers){
         });
         jScrollPane1.setViewportView(sellertable);
 
-        btnedit.setBackground(new java.awt.Color(0, 255, 153));
-        btnedit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnedit.setForeground(new java.awt.Color(255, 51, 51));
-        btnedit.setText("EDIT");
-        btnedit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -212,10 +201,8 @@ private void setTableData(List<Sellers> sellers){
                                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(40, 40, 40)
-                                        .addComponent(btnupdate)
-                                        .addGap(37, 37, 37)
-                                        .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(91, 91, 91)
+                                        .addComponent(btnupdate))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(283, 283, 283)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -266,8 +253,7 @@ private void setTableData(List<Sellers> sellers){
                     .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btndelete, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnedit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel8)
                 .addGap(27, 27, 27)
@@ -338,8 +324,55 @@ private void setTableData(List<Sellers> sellers){
 
     private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
         // TODO add your handling code here:
+        int row = sellertable.getSelectedRow();
+        if (row == -1)//nguoi dung chua chon hang nao
+        {
+            JOptionPane.showMessageDialog(Seler.this, "Vui lòng chọn nhân viên cần xóa trước", "loi", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(Seler.this, "Bạn chắc chắn muốn xóa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try {
+                    int slId = Integer.valueOf(String.valueOf(sellertable.getValueAt(row, 0)));
+
+                    slservice.deleteSeller(slId);
+
+                    defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+                    setTableData(slservice.getAllSellers());
+                    JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        }
+        if (txtsellerid.getText().equals("") || txtsellername.getText().equals("") || txtpassword.getText().equals("") || cbxgerder.getSelectedItem().equals("") ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
+        } else {
+            try {
+                sl.setId(Integer.parseInt(txtsellerid.getText()));
+                sl.setName(txtsellername.getText());
+
+                sl.setPassword(txtpassword.getText());
+                
+                sl.setGender(cbxgerder.getSelectedItem().toString());
+                
+                slservice.addSeller(sl);
+                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công!");
+            } catch (SQLException ex) {
+                Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        
+        
+        
+        
         defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
         setTableData(slservice.getAllSellers());
+        
         JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
     }//GEN-LAST:event_btnupdateActionPerformed
 
@@ -387,28 +420,6 @@ private void setTableData(List<Sellers> sellers){
         txtpassword.setText(model.getValueAt(myindex, 2).toString());
     }//GEN-LAST:event_sellertableMouseClicked
 
-    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-        // TODO add your handling code here:
-        if (txtsellerid.getText().equals("") || txtsellername.getText().equals("") || txtpassword.getText().equals("") || cbxgerder.getSelectedItem().equals("") ) {
-            JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
-        } else {
-            try {
-                sl.setId(Integer.parseInt(txtsellerid.getText()));
-                sl.setName(txtsellername.getText());
-
-                sl.setPassword(txtpassword.getText());
-                
-                sl.setGender(cbxgerder.getSelectedItem().toString());
-                
-                slservice.editSeller(sl);
-                JOptionPane.showMessageDialog(this, "Sửa sinh viên thành công!");
-            } catch (SQLException ex) {
-                Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-    }//GEN-LAST:event_btneditActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -449,7 +460,6 @@ private void setTableData(List<Sellers> sellers){
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btnclear;
     private javax.swing.JButton btndelete;
-    private javax.swing.JButton btnedit;
     private javax.swing.JButton btnupdate;
     private javax.swing.JComboBox<String> cbxgerder;
     private javax.swing.JLabel jLabel1;
