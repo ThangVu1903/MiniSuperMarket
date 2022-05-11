@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -50,16 +51,18 @@ public class Bulling_point extends javax.swing.JFrame {
         btnadd = new javax.swing.JButton();
         btnclear = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Catcb = new javax.swing.JComboBox<>();
         bntrefresh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbbang = new javax.swing.JTable();
         bntprint = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Billtxt = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         txtbillid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        Rrdtotallbl = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -69,6 +72,7 @@ public class Bulling_point extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         txtxX.setBackground(new java.awt.Color(255, 102, 0));
         txtxX.setText("X");
@@ -96,6 +100,11 @@ public class Bulling_point extends javax.swing.JFrame {
         btnadd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
         btnadd.setText("Add to bill");
+        btnadd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnaddMouseClicked(evt);
+            }
+        });
         btnadd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnaddActionPerformed(evt);
@@ -106,6 +115,11 @@ public class Bulling_point extends javax.swing.JFrame {
         btnclear.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         btnclear.setForeground(new java.awt.Color(255, 255, 255));
         btnclear.setText("Clear");
+        btnclear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnclearMouseClicked(evt);
+            }
+        });
         btnclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnclearActionPerformed(evt);
@@ -116,13 +130,22 @@ public class Bulling_point extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("PRODUCTS LIST");
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beverage", "Dairy", "Meat" }));
+        Catcb.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        Catcb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CatcbMouseClicked(evt);
+            }
+        });
 
         bntrefresh.setBackground(new java.awt.Color(255, 102, 0));
         bntrefresh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         bntrefresh.setForeground(new java.awt.Color(255, 255, 255));
         bntrefresh.setText("Refresh");
+        bntrefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bntrefreshMouseClicked(evt);
+            }
+        });
         bntrefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bntrefreshActionPerformed(evt);
@@ -138,16 +161,26 @@ public class Bulling_point extends javax.swing.JFrame {
             }
         ));
         tbbang.setName(""); // NOI18N
+        tbbang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbbangMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbbang);
 
         bntprint.setBackground(new java.awt.Color(255, 102, 0));
         bntprint.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         bntprint.setForeground(new java.awt.Color(255, 255, 255));
         bntprint.setText("Print");
+        bntprint.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bntprintMouseClicked(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        Billtxt.setColumns(20);
+        Billtxt.setRows(5);
+        jScrollPane2.setViewportView(Billtxt);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
@@ -157,6 +190,10 @@ public class Bulling_point extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 102, 51));
         jLabel8.setText("Fillter by");
 
+        Rrdtotallbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Rrdtotallbl.setForeground(new java.awt.Color(255, 102, 0));
+        Rrdtotallbl.setText("Rs");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -164,9 +201,9 @@ public class Bulling_point extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(29, 29, 29)
                         .addComponent(btnadd)
-                        .addGap(44, 44, 44)
+                        .addGap(58, 58, 58)
                         .addComponent(btnclear))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -206,13 +243,15 @@ public class Bulling_point extends javax.swing.JFrame {
                                 .addGap(228, 228, 228))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bntrefresh)
                                 .addGap(66, 66, 66))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(bntprint, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(230, 230, 230))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Rrdtotallbl)
+                            .addComponent(bntprint, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(237, 237, 237))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +267,7 @@ public class Bulling_point extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(7, 7, 7)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(bntrefresh)
                             .addComponent(jLabel8)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -247,19 +286,31 @@ public class Bulling_point extends javax.swing.JFrame {
                             .addComponent(btnadd)
                             .addComponent(btnclear)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(72, 72, 72)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(Rrdtotallbl)
+                .addGap(26, 26, 26)
                 .addComponent(bntprint)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(66, 66, 66))
         );
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("LOGOUT");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 88, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtxX))
@@ -275,6 +326,10 @@ public class Bulling_point extends javax.swing.JFrame {
                         .addGap(0, 23, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -297,25 +352,7 @@ public class Bulling_point extends javax.swing.JFrame {
     }//GEN-LAST:event_txtxXActionPerformed
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
-        // TODO add your handling code here:
-        int result = JOptionPane.showConfirmDialog(null,"Bạn có chắc chắn muốn xóa không");
-        if(result == 0 ){
-            int position = tbbang.getSelectedRow();
-            String data = tbbang.getModel().getValueAt(position, 0).toString();
-              try{
-                Connection connection = DBConnection.getConnection();
-                String query = "DELETE FROM dbo.[minisupermarket_1] WHERE PRODID = ? ";
-                PreparedStatement ps = connection.prepareStatement(query);
-                ps.setString(1,data);
-                ps.executeUpdate();
-                showDuLieu();
-                DBConnection.closeConnection(connection);
-                JOptionPane.showMessageDialog(null,"Xóa thành công");
         
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }
-    }                    
     }//GEN-LAST:event_btnclearActionPerformed
     
     
@@ -328,14 +365,14 @@ public class Bulling_point extends javax.swing.JFrame {
     
     private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
         // TODO add your handling code here:
-        resetForm();
+        //resetForm();
     }//GEN-LAST:event_bntrefreshActionPerformed
 
     
     private void showDuLieu(){
         try{
             tbbang.removeAll();
-            String[] arr = {"BILLID", "NAME", "QUANTITY"};
+            String[] arr = {"PRODID", "PRODNAME", "PRODQTY","PRODPRICE", "PRODCAT"};
             DefaultTableModel model = new DefaultTableModel(arr,0);
             tbbang.setModel(model);
             Connection connection = DBConnection.getConnection();
@@ -347,7 +384,8 @@ public class Bulling_point extends javax.swing.JFrame {
                 vector.add(rs.getString("PRODID"));
                 vector.add(rs.getString("PRODNAME"));
                 vector.add(rs.getString("PRODQTY"));
-             
+                vector.add(rs.getString("PRODPRICE"));
+                vector.add(rs.getString("PRODCAT"));
                 
                 model.addRow(vector);
 
@@ -388,47 +426,79 @@ public class Bulling_point extends javax.swing.JFrame {
     }
     
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        // TODO add your handling code here:
-           if(txtbillid.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Billid không được rỗng");
-            txtbillid.requestFocus();
-            return;
-        }else if(txtname.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Tên không được rỗng");
-            txtname.requestFocus();
-            return;
-        }else if(txtquantity.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Số lượng không được rỗng");
-            txtquantity.requestFocus();
-            return;
-        }
-        
-        //trùng mã vật chất
-        
-        if(checkTrungBillid() == true){
-            JOptionPane.showMessageDialog(null,"Mã vật chất này đã tồn tại");
-            txtbillid.requestFocus();
-            return;
-        }else{
-            try{
-            Connection connection = DBConnection.getConnection();
-            String query = "INSERT INTO dbo.minisupermarket_1(PRODID, PRODNAME, PRODQTY)"
-                        + "VALUES(?,?,?)";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1,txtbillid.getText());
-            ps.setString(2,txtname.getText());
-            ps.setString(3,txtquantity.getText());
-            
-            ps.executeUpdate();
-            showDuLieu();
-            DBConnection.closeConnection(connection);
-            JOptionPane.showMessageDialog(null,"Thêm thành công");
-        
-        }catch(SQLException ex){
-            ex.printStackTrace();
-        }
-        }
+      
     }//GEN-LAST:event_btnaddActionPerformed
+Double Uprice,ProdTot=0.0,GrdTotal=0.0;
+int AvailQty;
+    private void tbbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbbangMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
+        
+        int myindex = tbbang.getSelectedRow();
+    
+        AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
+        Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
+        txtname.setText(model.getValueAt(myindex, 1).toString());
+        ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
+    
+      
+    }//GEN-LAST:event_tbbangMouseClicked
+int i = 0;
+    private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
+        // TODO add your handling code here:
+        if(txtquantity.getText().isEmpty()|| txtname.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(this,"Missing Information");
+        }
+        else if(AvailQty <= Integer.valueOf(txtquantity.getText()))
+        {
+            JOptionPane.showMessageDialog(this,"Not Enough In Stock");
+        }
+        else{
+            i++;
+            ProdTot = Uprice * Double.valueOf(txtquantity.getText());
+            GrdTotal = GrdTotal + ProdTot;
+            if(i==1)
+            {
+                Billtxt.setText(Billtxt.getText()+ "    ===========FAMILY POINT========\n"+" NUM    PRODUCT    PRICE    QUANTITY    TOTAL\n"+i+"       "+ txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
+            }
+            else{
+                Billtxt.setText(Billtxt.getText()+i+"  "+txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
+            }
+            Rrdtotallbl.setText("Rs" + GrdTotal);
+        }
+    }//GEN-LAST:event_btnaddMouseClicked
+
+    private void bntprintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntprintMouseClicked
+        try {
+            // TODO add your handling code here:
+            Billtxt.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntprintMouseClicked
+
+    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
+        // TODO add your handling code here:
+        txtbillid.setText("");
+        txtname.setText("");
+        txtquantity.setText("");
+    }//GEN-LAST:event_btnclearMouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void CatcbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatcbMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CatcbMouseClicked
+
+    private void bntrefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntrefreshMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_bntrefreshMouseClicked
 
     /**
      * @param args the command line arguments
@@ -466,23 +536,25 @@ public class Bulling_point extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Billtxt;
+    private javax.swing.JComboBox<String> Catcb;
+    private javax.swing.JLabel Rrdtotallbl;
     private javax.swing.JButton bntprint;
     private javax.swing.JButton bntrefresh;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton btnclear;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTable tbbang;
     private javax.swing.JTextField txtbillid;
     private javax.swing.JTextField txtname;
