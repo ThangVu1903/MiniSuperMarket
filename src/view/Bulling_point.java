@@ -404,7 +404,7 @@ public class Bulling_point extends javax.swing.JFrame {
         showDuLieu();
     }//GEN-LAST:event_formComponentShown
 
-    private boolean checkTrungBillid(){
+    /*private boolean checkTrungBillid(){
         DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
         try{
             Connection connection = DBConnection.getConnection();
@@ -423,7 +423,7 @@ public class Bulling_point extends javax.swing.JFrame {
            
         }
         return false;
-    }
+    }*/
     
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
       
@@ -437,6 +437,7 @@ int AvailQty;
         int myindex = tbbang.getSelectedRow();
     
         AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
+        
         Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
         txtname.setText(model.getValueAt(myindex, 1).toString());
         ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
@@ -444,6 +445,7 @@ int AvailQty;
       
     }//GEN-LAST:event_tbbangMouseClicked
 int i = 0;
+
     private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
         // TODO add your handling code here:
         if(txtquantity.getText().isEmpty()|| txtname.getText().isEmpty())
@@ -460,7 +462,7 @@ int i = 0;
             GrdTotal = GrdTotal + ProdTot;
             if(i==1)
             {
-                Billtxt.setText(Billtxt.getText()+ "    ===========FAMILY POINT========\n"+" NUM    PRODUCT    PRICE    QUANTITY    TOTAL\n"+i+"       "+ txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
+                Billtxt.setText(Billtxt.getText()+ "    ===========FAMILY POINT========  \n"+" NUM    PRODUCT    PRICE    QUANTITY    TOTAL\n"+i+"       "+ txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
             }
             else{
                 Billtxt.setText(Billtxt.getText()+i+"  "+txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
