@@ -318,7 +318,9 @@ private void setTableData(List<Sellers> sellers){
             } catch (SQLException ex) {
                 Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+        defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+        setTableData(slservice.getAllSellers());
+        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
         }
     }//GEN-LAST:event_btnaddActionPerformed
 
