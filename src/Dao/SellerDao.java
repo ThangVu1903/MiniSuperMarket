@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Dao;
+package dao;
 
-import Model.Sellers;
+import model.Sellers;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +25,7 @@ public class SellerDao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Sellers seller = new Sellers();
-                seller.setId(rs.getInt("ID"));
+                seller.setId(rs.getString("ID"));
                 seller.setName(rs.getString("NAME"));
                 seller.setPassword(rs.getString("PASSWORD"));
                 seller.setGender(rs.getString("GENDER"));
@@ -36,16 +36,16 @@ public class SellerDao {
         }
         return sl_diem;  
     }
-    public Sellers getSellerById(int id){
+    public Sellers getSellerById(String id){
         java.sql.Connection con = Connection.getJDBCConection();
         String sql = "select * from data where id = ?";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Sellers seller = new Sellers();
-                seller.setId(rs.getInt("ID"));
+                seller.setId(rs.getString("ID"));
                 seller.setName(rs.getString("NAME"));
                 seller.setPassword(rs.getString("PASSWORD"));
                 seller.setGender(rs.getString("GENDER"));
@@ -61,7 +61,7 @@ public class SellerDao {
         String sql = "INSERT INTO seller (ID, NAME, PASSWORD, GENDER) VALUES(?,?,?,?)";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, seller.getId());
+            pstmt.setString(1, seller.getId());
             pstmt.setString(2, seller.getName());
             pstmt.setString(3, seller.getPassword());
             pstmt.setString(4, seller.getGender());
@@ -80,7 +80,7 @@ public class SellerDao {
         String sql = "UPDATE seller SET ID = ?,NAME = ?,PASSWORD = ?, GENDER = ?";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setInt(1, seller.getId());
+            pstmt.setString(1, seller.getId());
             pstmt.setString(2, seller.getName());
             pstmt.setString(3, seller.getPassword());
             pstmt.setString(4, seller.getGender());
@@ -90,14 +90,14 @@ public class SellerDao {
             e.printStackTrace();
         }
     }
-    public void deleteSeller(int id) throws SQLException {
+    public void deleteSeller(String id) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
 
         String sql = "delete from seller where ID= ?";
 
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setString(1, id);
             int rs = preparedStatement.executeUpdate();
             System.out.println(rs);
         } catch (SQLException e) {

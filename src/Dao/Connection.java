@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Dao;
+package dao;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Connection {
     public static java.sql.Connection getJDBCConection() {
-        final String url = "jdbc:mysql://localhost:3306/manageseller";
+        final String url = "jdbc:mysql://localhost/mnseller";
         final String user = "root";
         final String password = "";
         try {

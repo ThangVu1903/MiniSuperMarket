@@ -4,8 +4,8 @@
  */
 package view;
 
-import Model.Sellers;
-import Service.SellerService;
+import model.Sellers;
+import service.SellerService;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -306,7 +306,7 @@ private void setTableData(List<Sellers> sellers){
             JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
         } else {
             try {
-                sl.setId(Integer.parseInt(txtsellerid.getText()));
+                sl.setId(txtsellerid.getText());
                 sl.setName(txtsellername.getText());
 
                 sl.setPassword(txtpassword.getText());
@@ -336,7 +336,7 @@ private void setTableData(List<Sellers> sellers){
             if (confirm == JOptionPane.YES_OPTION) {
 
                 try {
-                    int slId = Integer.valueOf(String.valueOf(sellertable.getValueAt(row, 0)));
+                    String slId = String.valueOf(sellertable.getValueAt(row, 0));
 
                     slservice.deleteSeller(slId);
 
@@ -354,7 +354,7 @@ private void setTableData(List<Sellers> sellers){
             JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
         } else {
             try {
-                sl.setId(Integer.parseInt(txtsellerid.getText()));
+                sl.setId(txtsellerid.getText());
                 sl.setName(txtsellername.getText());
 
                 sl.setPassword(txtpassword.getText());
@@ -390,7 +390,7 @@ private void setTableData(List<Sellers> sellers){
             if (confirm == JOptionPane.YES_OPTION) {
 
                 try {
-                    int slId = Integer.valueOf(String.valueOf(sellertable.getValueAt(row, 0)));
+                    String slId = String.valueOf(sellertable.getValueAt(row, 0));
 
                     slservice.deleteSeller(slId);
 
@@ -400,8 +400,11 @@ private void setTableData(List<Sellers> sellers){
                 } catch (SQLException ex) {
                     Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
             }
+            else 
+                return ;
+
+            
 
         }
     }//GEN-LAST:event_btndeleteActionPerformed
