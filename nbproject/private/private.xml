@@ -3,9 +3,22 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/ManageProductForm.java</file>
             <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/Main.java</file>
             <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/InterfaceLoadForm.java</file>
+=======
+<<<<<<< HEAD
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/view/DBConnection.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/view/Bulling_point.java</file>
+=======
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/service/SellerService.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/dao/Connection.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/model/Sellers.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/view/Seler.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/dao/SellerDao.java</file>
+>>>>>>> 366e7ebc20717edc7177fe1032448b9314fc4522
+>>>>>>> 92324d3a2466008c6b71b8aa99f985a187786b2c
         </group>
     </open-files>
 </project-private>
