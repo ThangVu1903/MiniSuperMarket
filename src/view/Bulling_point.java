@@ -62,6 +62,7 @@ public class Bulling_point extends javax.swing.JFrame {
         txtbillid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Rrdtotallbl = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -194,6 +195,8 @@ public class Bulling_point extends javax.swing.JFrame {
         Rrdtotallbl.setForeground(new java.awt.Color(255, 102, 0));
         Rrdtotallbl.setText("Rs");
 
+        jToggleButton1.setText("jToggleButton1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -220,7 +223,10 @@ public class Bulling_point extends javax.swing.JFrame {
                                     .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(78, 78, 78)
+                        .addComponent(jToggleButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -258,37 +264,43 @@ public class Bulling_point extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
+                        .addGap(33, 33, 33)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bntrefresh)
-                            .addComponent(jLabel8)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bntrefresh)
+                                    .addComponent(jLabel8)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(36, 36, 36)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnadd)
-                            .addComponent(btnclear)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addGap(36, 36, 36)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnadd)
+                                    .addComponent(btnclear)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(72, 72, 72)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1)
+                        .addGap(166, 166, 166)))
                 .addComponent(Rrdtotallbl)
                 .addGap(26, 26, 26)
                 .addComponent(bntprint)
@@ -350,10 +362,6 @@ public class Bulling_point extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_txtxXActionPerformed
-
-    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
-        
-    }//GEN-LAST:event_btnclearActionPerformed
     
     
      public void resetForm(){
@@ -363,11 +371,6 @@ public class Bulling_point extends javax.swing.JFrame {
      
     }
     
-    private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
-        // TODO add your handling code here:
-        //resetForm();
-    }//GEN-LAST:event_bntrefreshActionPerformed
-
     
     private void showDuLieu(){
         try{
@@ -404,47 +407,66 @@ public class Bulling_point extends javax.swing.JFrame {
         showDuLieu();
     }//GEN-LAST:event_formComponentShown
 
-    /*private boolean checkTrungBillid(){
-        DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
-        try{
-            Connection connection = DBConnection.getConnection();
-            String query = "SELECT *FROM dbo.[minisupermarket_1] WHERE PRODID = ?";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ps.setString(1,txtbillid.getText());
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-               return true;
-            }
-            //đóng kết nối 
-            DBConnection.closeConnection(connection);
-            tbbang.setModel((TableModel) model);
-        }catch(SQLException ex){
-           Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE,null,ex);
-           
-        }
-        return false;
-    }*/
-    
-    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-      
-    }//GEN-LAST:event_btnaddActionPerformed
 Double Uprice,ProdTot=0.0,GrdTotal=0.0;
-int AvailQty;
+int AvailQty;int i = 0;
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void bntprintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntprintMouseClicked
+        try {
+            // TODO add your handling code here:
+            Billtxt.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bntprintMouseClicked
+
     private void tbbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbbangMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
-        
+
         int myindex = tbbang.getSelectedRow();
-    
+
         AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
-        
+
         Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
         txtname.setText(model.getValueAt(myindex, 1).toString());
         ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
-    
-      
+
     }//GEN-LAST:event_tbbangMouseClicked
-int i = 0;
+
+    private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
+        // TODO add your handling code here:
+        //resetForm();
+    }//GEN-LAST:event_bntrefreshActionPerformed
+
+    private void bntrefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntrefreshMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_bntrefreshMouseClicked
+
+    private void CatcbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatcbMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_CatcbMouseClicked
+
+    private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
+
+    }//GEN-LAST:event_btnclearActionPerformed
+
+    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
+        // TODO add your handling code here:
+        txtbillid.setText("");
+        txtname.setText("");
+        txtquantity.setText("");
+    }//GEN-LAST:event_btnclearMouseClicked
+
+//GEN-FIRST:event_btnaddActionPerformed
+ 
+//GEN-LAST:event_btnaddActionPerformed
 
     private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
         // TODO add your handling code here:
@@ -470,37 +492,6 @@ int i = 0;
             Rrdtotallbl.setText("Rs" + GrdTotal);
         }
     }//GEN-LAST:event_btnaddMouseClicked
-
-    private void bntprintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntprintMouseClicked
-        try {
-            // TODO add your handling code here:
-            Billtxt.print();
-        } catch (PrinterException ex) {
-            Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_bntprintMouseClicked
-
-    private void btnclearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnclearMouseClicked
-        // TODO add your handling code here:
-        txtbillid.setText("");
-        txtname.setText("");
-        txtquantity.setText("");
-    }//GEN-LAST:event_btnclearMouseClicked
-
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void CatcbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatcbMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_CatcbMouseClicked
-
-    private void bntrefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntrefreshMouseClicked
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_bntrefreshMouseClicked
 
     /**
      * @param args the command line arguments
@@ -557,6 +548,7 @@ int i = 0;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTable tbbang;
     private javax.swing.JTextField txtbillid;
     private javax.swing.JTextField txtname;
