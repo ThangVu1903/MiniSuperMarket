@@ -5,17 +5,15 @@
  */
 package view;
 
+import Model.bullingpoints;
+import Service.bullingpointservice;
 import java.awt.print.PrinterException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Vector;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 /**
  *
@@ -23,13 +21,39 @@ import javax.swing.table.TableModel;
  */
 public class Bulling_point extends javax.swing.JFrame {
 
+    bullingpointservice slbullingpoint;
+    DefaultTableModel defaultTableModel;
+    bullingpoints sl;
     /**
      * Creates new form Bulling_point
      */
     public Bulling_point() {
         initComponents();
+        slbullingpoint = new bullingpointservice();
+        sl = new bullingpoints();
+        defaultTableModel = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+            
+        };
+        tbbang.setModel(defaultTableModel);
+        
+        defaultTableModel.addColumn("PRODID");
+        defaultTableModel.addColumn("PRODNAME");
+        defaultTableModel.addColumn("PRODQTY");
+        defaultTableModel.addColumn("PRODPRICE");
+        defaultTableModel.addColumn("PRODCAT");
+        
+        setTableData(slbullingpoint.getAllbullingpoints());
     }
 
+    private void setTableData(List<bullingpoints> Bullingpoints){
+        Bullingpoints.forEach(bullingpoint -> {
+            defaultTableModel.addRow(new Object[]{bullingpoint.getProdid()  , bullingpoint.getProdname() , bullingpoint.getProdqty() , bullingpoint.getProdprice() ,  bullingpoint.getProdcat()});
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -347,47 +371,11 @@ public class Bulling_point extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     
-     public void resetForm(){
-        txtbillid.setText("");
-        txtname.setText("");
-        txtquantity.setText("");
      
-    }
-    
-    
-    private void showDuLieu(){
-        try{
-            tbbang.removeAll();
-            String[] arr = {"PRODID", "PRODNAME", "PRODQTY","PRODPRICE", "PRODCAT"};
-            DefaultTableModel model = new DefaultTableModel(arr,0);
-            tbbang.setModel(model);
-            Connection connection = DBConnection.getConnection();
-            String query = "SELECT *FROM dbo.[minisupermarket_1]";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Vector vector = new Vector();
-                vector.add(rs.getString("PRODID"));
-                vector.add(rs.getString("PRODNAME"));
-                vector.add(rs.getString("PRODQTY"));
-                vector.add(rs.getString("PRODPRICE"));
-                vector.add(rs.getString("PRODCAT"));
-                
-                model.addRow(vector);
-
-            }
-            //đóng kết nối 
-            DBConnection.closeConnection(connection);
-            tbbang.setModel((TableModel) model);
-        }catch(SQLException ex){
-           Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE,null,ex);
-           
-        }
-    }
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        showDuLieu();
+   
     }//GEN-LAST:event_formComponentShown
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -445,6 +433,9 @@ public class Bulling_point extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnaddActionPerformed
 
+Double Uprice,ProdTot=0.0,GrdTotal=0.0;
+int AvailQty;int i = 0;
+    
     private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
         // TODO add your handling code here:
         if(txtquantity.getText().isEmpty()|| txtname.getText().isEmpty())
@@ -475,8 +466,6 @@ public class Bulling_point extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_txtxXActionPerformed
 
-Double Uprice,ProdTot=0.0,GrdTotal=0.0;
-int AvailQty;int i = 0;
 
     /**
      * @param args the command line arguments
