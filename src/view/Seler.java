@@ -329,10 +329,10 @@ private void setTableData(List<Sellers> sellers){
         int row = sellertable.getSelectedRow();
         if (row == -1)//nguoi dung chua chon hang nao
         {
-            JOptionPane.showMessageDialog(Seler.this, "Vui lòng chọn nhân viên cần xóa trước", "loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(Seler.this, "Vui lòng chọn nhân viên cần sửa trước", "loi", JOptionPane.ERROR_MESSAGE);
 
         } else {
-            int confirm = JOptionPane.showConfirmDialog(Seler.this, "Bạn chắc chắn muốn xóa không?");
+            int confirm = JOptionPane.showConfirmDialog(Seler.this, "Bạn chắc chắn muốn chỉnh sửa không?");
             if (confirm == JOptionPane.YES_OPTION) {
 
                 try {
@@ -342,7 +342,7 @@ private void setTableData(List<Sellers> sellers){
 
                     defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
                     setTableData(slservice.getAllSellers());
-                    JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                    //JOptionPane.showMessageDialog(this, "Xóa thành công!");
                 } catch (SQLException ex) {
                     Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -362,7 +362,7 @@ private void setTableData(List<Sellers> sellers){
                 sl.setGender(cbxgerder.getSelectedItem().toString());
                 
                 slservice.addSeller(sl);
-                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công!");
+                JOptionPane.showMessageDialog(this, "cập nhật sinh viên thành công!");
             } catch (SQLException ex) {
                 Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -375,7 +375,7 @@ private void setTableData(List<Sellers> sellers){
         defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
         setTableData(slservice.getAllSellers());
         
-        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+        //JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
     }//GEN-LAST:event_btnupdateActionPerformed
 
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
