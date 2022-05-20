@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<<<<<<< HEAD
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/DanhMucQuanLy.java</file>
+=======
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
@@ -21,6 +27,7 @@
             <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/view/ManageProductForm.java</file>
             <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Service/bullingpointservice.java</file>
 
+>>>>>>> Main
 >>>>>>> Main
         </group>
     </open-files>
