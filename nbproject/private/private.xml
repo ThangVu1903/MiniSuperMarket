@@ -1,10 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/LoginForm.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/Main.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/InterfaceLoadForm.java</file>
+
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Model/Sellers.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Dao/SellerDao.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Service/SellerService.java</file>
+            <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/view/Seler.java</file>
+
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/ManageProductForm.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/Seler.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/Bulling_point.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/DBConnection.java</file>
+            <file>file:/D:/THANG/HK2/LapTrinhJavaNangCao/LyThuyet/MiniSuperMarket/src/view/InterfaceLoadForm.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Dao/bullingpointdao.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Dao/Connection.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Dao/SellerDao.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/view/Seler.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Model/bullingpoints.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/view/ManageProductForm.java</file>
+            <file>file:/C:/Users/ADMIN/Desktop/MiniSuperMarket/src/Service/bullingpointservice.java</file>
+
+
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/InterfaceLoadForm.java</file>
             <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/Categories.java</file>
+
         </group>
     </open-files>
 </project-private>
