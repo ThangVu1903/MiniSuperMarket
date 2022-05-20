@@ -61,4 +61,18 @@ public class bullingpointdao {
         }
         return null;
     }
+    
+    public void updateBullingpoint(bullingpoints bullingpoint) throws SQLException {
+        java.sql.Connection con = Connection.getJDBCConection();
+        String sql = "UPDATE tblbullingpoint SET PRODID = ?,PRODNAME = ?";
+        try {
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1, bullingpoint.getProdqty());
+            pstmt.setString(2, bullingpoint.getProdname());
+            int rs = pstmt.executeUpdate();
+            System.out.println(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
