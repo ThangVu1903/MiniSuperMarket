@@ -14,10 +14,10 @@ public class Product {
     private String idPr;
     private String name;
     private int quantity;
-    private double price;
+    private int price;
     private String category;
 
-    public Product(String idPr, String name, int quantity, double price, String category) {
+    public Product(String idPr, String name, int quantity, int price, String category) {
         this.idPr = idPr;
         this.name = name;
         this.quantity = quantity;
@@ -57,7 +57,7 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
