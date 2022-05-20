@@ -214,6 +214,11 @@ public class Bulling_point extends javax.swing.JFrame {
         Billtxt.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
         Billtxt.setForeground(new java.awt.Color(255, 102, 0));
         Billtxt.setRows(5);
+        Billtxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BilltxtMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(Billtxt);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -405,16 +410,20 @@ public class Bulling_point extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntprintMouseClicked
 
+Double Uprice,ProdTot=0.0,GrdTotal=0.0;
+int AvailQty;int i = 0;
+int Prid, newQty;
     private void tbbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbbangMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
 
         int myindex = tbbang.getSelectedRow();
-
-        AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
-
-        Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
+        Prid = Integer.valueOf(model.getValueAt(myindex, 0).toString());
         txtname.setText(model.getValueAt(myindex, 1).toString());
+        AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
+        newQty = AvailQty - Integer.valueOf(txtquantity.getText());
+        Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
+        
         ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
     }//GEN-LAST:event_tbbangMouseClicked
 
@@ -446,8 +455,7 @@ public class Bulling_point extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnaddActionPerformed
 
-Double Uprice,ProdTot=0.0,GrdTotal=0.0;
-int AvailQty;int i = 0;
+
     
     private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
         // TODO add your handling code here:
@@ -478,6 +486,10 @@ int AvailQty;int i = 0;
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_txtxXActionPerformed
+
+    private void BilltxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BilltxtMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BilltxtMouseClicked
 
 
     /**
