@@ -5,17 +5,15 @@
  */
 package view;
 
+import Model.bullingpoints;
+import Service.bullingpointservice;
 import java.awt.print.PrinterException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Vector;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+
 
 /**
  *
@@ -23,13 +21,39 @@ import javax.swing.table.TableModel;
  */
 public class Bulling_point extends javax.swing.JFrame {
 
+    bullingpointservice slbullingpoint;
+    DefaultTableModel defaultTableModel;
+    bullingpoints sl;
     /**
      * Creates new form Bulling_point
      */
     public Bulling_point() {
         initComponents();
+        slbullingpoint = new bullingpointservice();
+        sl = new bullingpoints();
+        defaultTableModel = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+            
+        };
+        tbbang.setModel(defaultTableModel);
+        
+        defaultTableModel.addColumn("PRODID");
+        defaultTableModel.addColumn("PRODNAME");
+        defaultTableModel.addColumn("PRODQTY");
+        defaultTableModel.addColumn("PRODPRICE");
+        defaultTableModel.addColumn("PRODCAT");
+        
+        setTableData(slbullingpoint.getAllbullingpoints());
     }
 
+    private void setTableData(List<bullingpoints> Bullingpoints){
+        Bullingpoints.forEach(bullingpoint -> {
+            defaultTableModel.addRow(new Object[]{bullingpoint.getProdid()  , bullingpoint.getProdname() , bullingpoint.getProdqty() , bullingpoint.getProdprice() ,  bullingpoint.getProdcat()});
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,7 +86,6 @@ public class Bulling_point extends javax.swing.JFrame {
         txtbillid = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         Rrdtotallbl = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,6 +119,12 @@ public class Bulling_point extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("QUANTITY");
+
+        txtname.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtname.setForeground(new java.awt.Color(255, 102, 0));
+
+        txtquantity.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtquantity.setForeground(new java.awt.Color(255, 102, 0));
 
         btnadd.setBackground(new java.awt.Color(255, 102, 0));
         btnadd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
@@ -153,6 +182,8 @@ public class Bulling_point extends javax.swing.JFrame {
             }
         });
 
+        tbbang.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        tbbang.setForeground(new java.awt.Color(255, 102, 0));
         tbbang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -180,12 +211,17 @@ public class Bulling_point extends javax.swing.JFrame {
         });
 
         Billtxt.setColumns(20);
+        Billtxt.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
+        Billtxt.setForeground(new java.awt.Color(255, 102, 0));
         Billtxt.setRows(5);
         jScrollPane2.setViewportView(Billtxt);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("BILLID");
+
+        txtbillid.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        txtbillid.setForeground(new java.awt.Color(255, 102, 0));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 51));
@@ -194,8 +230,6 @@ public class Bulling_point extends javax.swing.JFrame {
         Rrdtotallbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         Rrdtotallbl.setForeground(new java.awt.Color(255, 102, 0));
         Rrdtotallbl.setText("Rs");
-
-        jToggleButton1.setText("jToggleButton1");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -223,10 +257,7 @@ public class Bulling_point extends javax.swing.JFrame {
                                     .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(78, 78, 78)
-                        .addComponent(jToggleButton1)))
+                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
@@ -264,47 +295,43 @@ public class Bulling_point extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(7, 7, 7)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bntrefresh)
-                                    .addComponent(jLabel8)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bntrefresh)
+                            .addComponent(jLabel8)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3))
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnadd)
-                                    .addComponent(btnclear)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1)
-                        .addGap(166, 166, 166)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))
+                        .addGap(36, 36, 36)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnadd)
+                            .addComponent(btnclear)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(Rrdtotallbl)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addComponent(bntprint)
-                .addGap(66, 66, 66))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -329,18 +356,16 @@ public class Bulling_point extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtxX, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtxX, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 23, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(jLabel6)
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel6)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -352,67 +377,23 @@ public class Bulling_point extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtxXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtxXActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_txtxXActionPerformed
     
     
-     public void resetForm(){
-        txtbillid.setText("");
-        txtname.setText("");
-        txtquantity.setText("");
      
-    }
-    
-    
-    private void showDuLieu(){
-        try{
-            tbbang.removeAll();
-            String[] arr = {"PRODID", "PRODNAME", "PRODQTY","PRODPRICE", "PRODCAT"};
-            DefaultTableModel model = new DefaultTableModel(arr,0);
-            tbbang.setModel(model);
-            Connection connection = DBConnection.getConnection();
-            String query = "SELECT *FROM dbo.[minisupermarket_1]";
-            PreparedStatement ps = connection.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            while(rs.next()){
-                Vector vector = new Vector();
-                vector.add(rs.getString("PRODID"));
-                vector.add(rs.getString("PRODNAME"));
-                vector.add(rs.getString("PRODQTY"));
-                vector.add(rs.getString("PRODPRICE"));
-                vector.add(rs.getString("PRODCAT"));
-                
-                model.addRow(vector);
-
-            }
-            //đóng kết nối 
-            DBConnection.closeConnection(connection);
-            tbbang.setModel((TableModel) model);
-        }catch(SQLException ex){
-           Logger.getLogger(Bulling_point.class.getName()).log(Level.SEVERE,null,ex);
-           
-        }
-    }
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        showDuLieu();
+   
     }//GEN-LAST:event_formComponentShown
-
-Double Uprice,ProdTot=0.0,GrdTotal=0.0;
-int AvailQty;int i = 0;
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void bntprintMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntprintMouseClicked
@@ -435,7 +416,6 @@ int AvailQty;int i = 0;
         Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
         txtname.setText(model.getValueAt(myindex, 1).toString());
         ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
-
     }//GEN-LAST:event_tbbangMouseClicked
 
     private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
@@ -445,12 +425,10 @@ int AvailQty;int i = 0;
 
     private void bntrefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntrefreshMouseClicked
         // TODO add your handling code here:
-
     }//GEN-LAST:event_bntrefreshMouseClicked
 
     private void CatcbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CatcbMouseClicked
         // TODO add your handling code here:
-
     }//GEN-LAST:event_CatcbMouseClicked
 
     private void btnclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnclearActionPerformed
@@ -464,10 +442,13 @@ int AvailQty;int i = 0;
         txtquantity.setText("");
     }//GEN-LAST:event_btnclearMouseClicked
 
-//GEN-FIRST:event_btnaddActionPerformed
- 
-//GEN-LAST:event_btnaddActionPerformed
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
 
+    }//GEN-LAST:event_btnaddActionPerformed
+
+Double Uprice,ProdTot=0.0,GrdTotal=0.0;
+int AvailQty;int i = 0;
+    
     private void btnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnaddMouseClicked
         // TODO add your handling code here:
         if(txtquantity.getText().isEmpty()|| txtname.getText().isEmpty())
@@ -492,6 +473,12 @@ int AvailQty;int i = 0;
             Rrdtotallbl.setText("Rs" + GrdTotal);
         }
     }//GEN-LAST:event_btnaddMouseClicked
+
+    private void txtxXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtxXActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_txtxXActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -548,7 +535,6 @@ int AvailQty;int i = 0;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTable tbbang;
     private javax.swing.JTextField txtbillid;
     private javax.swing.JTextField txtname;
