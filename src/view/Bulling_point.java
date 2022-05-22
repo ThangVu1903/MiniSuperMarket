@@ -412,16 +412,16 @@ public class Bulling_point extends javax.swing.JFrame {
 
 Double Uprice,ProdTot=0.0,GrdTotal=0.0;
 int AvailQty;int i = 0;
-int Prid, newQty;
+//int Prid, newQty;
     private void tbbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbbangMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
 
         int myindex = tbbang.getSelectedRow();
-        Prid = Integer.valueOf(model.getValueAt(myindex, 0).toString());
+        //Prid = Integer.valueOf(model.getValueAt(myindex, 0).toString());
         txtname.setText(model.getValueAt(myindex, 1).toString());
         AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
-        newQty = AvailQty - Integer.valueOf(txtquantity.getText());
+        //newQty = AvailQty - Integer.valueOf(txtquantity.getText());
         Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
         
         ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
