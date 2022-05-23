@@ -17,7 +17,7 @@ public class Connection {
     public static java.sql.Connection getJDBCConection() {
         final String url = "jdbc:mysql://localhost/minisupermarket";
         final String user = "root";
-        final String password = "19032002az";
+        final String password = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             return DriverManager.getConnection(url, user, password);

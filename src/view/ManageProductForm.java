@@ -28,13 +28,13 @@ public class ManageProductForm extends javax.swing.JFrame {
         initComponents();
         product = new Product();
         productService = new ProductService();
-        
         defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }  
         };
+        
         TableViewProduct337.setModel(defaultTableModel);
         
         defaultTableModel.addColumn("ID");
@@ -126,7 +126,7 @@ public class ManageProductForm extends javax.swing.JFrame {
 
         CategoryCombobox337.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
         CategoryCombobox337.setForeground(new java.awt.Color(255, 102, 0));
-        CategoryCombobox337.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "SELLER" }));
+        CategoryCombobox337.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HK1", "HK2" }));
 
         ADDBtn337.setBackground(new java.awt.Color(255, 102, 0));
         ADDBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -142,19 +142,34 @@ public class ManageProductForm extends javax.swing.JFrame {
         DELETEBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         DELETEBtn337.setForeground(new java.awt.Color(255, 255, 255));
         DELETEBtn337.setText("DELETE");
+        DELETEBtn337.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELETEBtn337ActionPerformed(evt);
+            }
+        });
 
         CLEARBtn337.setBackground(new java.awt.Color(255, 102, 0));
         CLEARBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         CLEARBtn337.setForeground(new java.awt.Color(255, 255, 255));
         CLEARBtn337.setText("Clear");
+        CLEARBtn337.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CLEARBtn337ActionPerformed(evt);
+            }
+        });
 
         EDITBtn337.setBackground(new java.awt.Color(255, 102, 0));
         EDITBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         EDITBtn337.setForeground(new java.awt.Color(255, 255, 255));
         EDITBtn337.setText("EDIT");
+        EDITBtn337.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EDITBtn337ActionPerformed(evt);
+            }
+        });
 
         TableViewProduct337.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 0), 2));
-        TableViewProduct337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        TableViewProduct337.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         TableViewProduct337.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -391,6 +406,85 @@ public class ManageProductForm extends javax.swing.JFrame {
         //JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
         }
     }//GEN-LAST:event_ADDBtn337ActionPerformed
+
+    private void CLEARBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CLEARBtn337ActionPerformed
+        ProdIdTF337.setText("");
+        NameTF337.setText("");
+        QuantityTF337.setText("");
+        PriceTF347.setText("");
+        PriceTF347.setText("");
+    }//GEN-LAST:event_CLEARBtn337ActionPerformed
+
+    private void DELETEBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEBtn337ActionPerformed
+        int row = TableViewProduct337.getSelectedRow();
+        if (row == -1)//nguoi dung chua chon hang nao
+        {
+            JOptionPane.showMessageDialog(ManageProductForm.this, "Vui lòng chọn sản phẩm cần xóa trước", "lỗi!!", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(ManageProductForm.this, "Bạn chắc chắn muốn xóa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try {
+                    String productId = String.valueOf(TableViewProduct337.getValueAt(row, 0));
+
+                    productService.deleteProduct(productId);
+
+                    defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+                    setTableData(productService.getAllproducts());
+                    JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else 
+                return ;
+        }
+    }//GEN-LAST:event_DELETEBtn337ActionPerformed
+
+    private void EDITBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITBtn337ActionPerformed
+        int row = TableViewProduct337.getSelectedRow();
+        if (row == -1)//nguoi dung chua chon hang nao
+        {
+            JOptionPane.showMessageDialog(ManageProductForm.this, "Vui lòng chọn Sản phẩm cần sửa trước", "lỗi", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(ManageProductForm.this, "Bạn chắc chắn muốn chỉnh sửa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                String prId = String.valueOf(TableViewProduct337.getValueAt(row, 0));
+                productService.getProductById(prId);
+                defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+                setTableData(productService.getAllproducts());
+            }
+        }
+        if (ProdIdTF337.getText().equals("") || NameTF337.getText().equals("") || QuantityTF337.getText().equals("") || CategoryCombobox337.getSelectedItem().equals("") ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
+        } else {
+            try {
+                product.setIdPr(ProdIdTF337.getText());
+                product.setName(NameTF337.getText());
+
+                product.setQuantity(Integer.parseInt(QuantityTF337.getText()));
+                
+                product.setPrice(Integer.parseInt(PriceTF347.getText()));
+                
+                product.setCategory(CategoryCombobox337.getSelectedItem().toString());
+                
+                productService.addProduct(product);
+                JOptionPane.showMessageDialog(this, "cập nhật Sản Phẩm thành công!");
+            } catch (SQLException ex) {
+                Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        
+        
+        
+        
+        defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+        setTableData(productService.getAllproducts());
+    }//GEN-LAST:event_EDITBtn337ActionPerformed
 
     /**
      * @param args the command line arguments
