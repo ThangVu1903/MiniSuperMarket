@@ -37,4 +37,7 @@ public class ProductService {
     public void UpdateProduct(Product product) throws SQLException{
         productDao.editProduct(product);
     }
+
+    public ProductService() {
+    }
 }
