@@ -4,19 +4,52 @@
  */
 package view;
 
+import Model.Category;
+import Service.CatergoriService;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author HP
  */
 public class Categories extends javax.swing.JFrame {
-
+ CatergoriService slservice;
+    DefaultTableModel defaultTableModel;
+    Categories Ct;
     /**
      * Creates new form DanhMucQuanLy
      */
     public Categories() {
         initComponents();
-    }
+         slservice = new CatergoriService();
+        Ct = new Categories();
+        defaultTableModel = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+            
+        };
+        Category_table_Tuananh.setModel(defaultTableModel);
+        
+        defaultTableModel.addColumn("ID");
+        defaultTableModel.addColumn("NAME");
+        defaultTableModel.addColumn("DESC");
+       
 
+        
+        setTableData(slservice.getAllCattegories());
+    }
+private void setTableData(List<Category> categorys){
+        for (Category Categories : categorys ){
+            defaultTableModel.addRow(new Object[]{Categories.getIdcat(), Categories.getName() , Categories.getDescription()});
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,19 +61,19 @@ public class Categories extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        LB_TuanAnh_FormName = new javax.swing.JLabel();
+        Txt_TuanAnh_CatId = new javax.swing.JTextField();
+        CatID = new javax.swing.JLabel();
+        Name = new javax.swing.JLabel();
+        Txt_TuanAnh_CatName = new javax.swing.JTextField();
+        CatDesc = new javax.swing.JLabel();
+        Txt_TuanAnh_Desc = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        AddBtn_TuanAnh = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Category_table_Tuananh = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -54,44 +87,44 @@ public class Categories extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setRequestFocusEnabled(false);
 
-        jLabel2.setBackground(new java.awt.Color(240, 240, 240));
-        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel2.setText("MANAGE CATEGORIES");
+        LB_TuanAnh_FormName.setBackground(new java.awt.Color(240, 240, 240));
+        LB_TuanAnh_FormName.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        LB_TuanAnh_FormName.setForeground(new java.awt.Color(255, 102, 0));
+        LB_TuanAnh_FormName.setText("MANAGE CATEGORIES");
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        Txt_TuanAnh_CatId.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_TuanAnh_CatId.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Txt_TuanAnh_CatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                Txt_TuanAnh_CatIdActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel3.setText("CATID");
+        CatID.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        CatID.setForeground(new java.awt.Color(255, 102, 0));
+        CatID.setText("CATID");
 
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel4.setText("NAME");
+        Name.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        Name.setForeground(new java.awt.Color(255, 102, 0));
+        Name.setText("NAME");
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        Txt_TuanAnh_CatName.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_TuanAnh_CatName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Txt_TuanAnh_CatName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                Txt_TuanAnh_CatNameActionPerformed(evt);
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel5.setText("DESCRIPTION");
+        CatDesc.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        CatDesc.setForeground(new java.awt.Color(255, 102, 0));
+        CatDesc.setText("DESCRIPTION");
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        Txt_TuanAnh_Desc.setBackground(new java.awt.Color(255, 255, 255));
+        Txt_TuanAnh_Desc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Txt_TuanAnh_Desc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                Txt_TuanAnh_DescActionPerformed(evt);
             }
         });
 
@@ -100,10 +133,15 @@ public class Categories extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
         jButton1.setText("EDIT");
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 102, 0));
-        jButton2.setText("ADD");
+        AddBtn_TuanAnh.setBackground(new java.awt.Color(255, 255, 255));
+        AddBtn_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        AddBtn_TuanAnh.setForeground(new java.awt.Color(255, 102, 0));
+        AddBtn_TuanAnh.setText("ADD");
+        AddBtn_TuanAnh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddBtn_TuanAnhActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -120,10 +158,10 @@ public class Categories extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(255, 102, 0));
         jButton4.setText("DELETE");
 
-        jTable1.setBackground(new java.awt.Color(255, 255, 255));
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Category_table_Tuananh.setBackground(new java.awt.Color(255, 255, 255));
+        Category_table_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        Category_table_Tuananh.setForeground(new java.awt.Color(0, 0, 0));
+        Category_table_Tuananh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -134,13 +172,13 @@ public class Categories extends javax.swing.JFrame {
                 "ID", "NAME", "DESCRIPTION"
             }
         ));
-        jTable1.setGridColor(new java.awt.Color(120, 120, 120));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(255, 102, 0));
-        jTable1.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        Category_table_Tuananh.setGridColor(new java.awt.Color(120, 120, 120));
+        Category_table_Tuananh.setIntercellSpacing(new java.awt.Dimension(0, 0));
+        Category_table_Tuananh.setRowHeight(25);
+        Category_table_Tuananh.setSelectionBackground(new java.awt.Color(255, 102, 0));
+        Category_table_Tuananh.setSelectionForeground(new java.awt.Color(255, 255, 255));
+        Category_table_Tuananh.setShowGrid(true);
+        jScrollPane1.setViewportView(Category_table_Tuananh);
 
         jLabel8.setBackground(new java.awt.Color(240, 240, 240));
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
@@ -160,7 +198,7 @@ public class Categories extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddBtn_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
@@ -172,21 +210,21 @@ public class Categories extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel5)
+                                .addComponent(CatDesc)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(Txt_TuanAnh_Desc, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2))
+                                .addComponent(LB_TuanAnh_FormName))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CatID, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Txt_TuanAnh_CatId, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(45, 45, 45)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Txt_TuanAnh_CatName, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(122, Short.MAX_VALUE))
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
@@ -194,23 +232,23 @@ public class Categories extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(LB_TuanAnh_FormName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CatID)
+                    .addComponent(Txt_TuanAnh_CatId, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Name)
+                    .addComponent(Txt_TuanAnh_CatName, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CatDesc)
+                    .addComponent(Txt_TuanAnh_Desc, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
-                    .addComponent(jButton2))
+                    .addComponent(AddBtn_TuanAnh))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -260,21 +298,44 @@ public class Categories extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void Txt_TuanAnh_CatIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_TuanAnh_CatIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_Txt_TuanAnh_CatIdActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void Txt_TuanAnh_CatNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_TuanAnh_CatNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_Txt_TuanAnh_CatNameActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void Txt_TuanAnh_DescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_TuanAnh_DescActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_Txt_TuanAnh_DescActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void AddBtn_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtn_TuanAnhActionPerformed
+        if (Txt_TuanAnh_CatId.getText().equals("") || Txt_TuanAnh_CatName.getText().equals("") || Txt_TuanAnh_Desc.getText().equals("")  ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
+        } else {
+            try {
+                Ct.(Txt_TuanAnh_CatId.getText());
+                Ct.setName(Txt_TuanAnh_CatId.getText());
+
+                Ct.set(Txt_TuanAnh_CatName.getText());
+                
+              
+                
+                slservice.addSeller(Ct);
+                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công!");
+            } catch (SQLException ex) {
+                Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+        setTableData(slservice.getAllCattegories());
+        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+        } 
+    }//GEN-LAST:event_AddBtn_TuanAnhActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,22 +374,22 @@ public class Categories extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddBtn_TuanAnh;
+    private javax.swing.JLabel CatDesc;
+    private javax.swing.JLabel CatID;
+    private javax.swing.JTable Category_table_Tuananh;
+    private javax.swing.JLabel LB_TuanAnh_FormName;
+    private javax.swing.JLabel Name;
+    private javax.swing.JTextField Txt_TuanAnh_CatId;
+    private javax.swing.JTextField Txt_TuanAnh_CatName;
+    private javax.swing.JTextField Txt_TuanAnh_Desc;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

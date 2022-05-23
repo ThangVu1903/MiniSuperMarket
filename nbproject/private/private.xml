@@ -39,6 +39,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 
+            <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/Dao/CategoryDao.java</file>
+            <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/Model/Category.java</file>
+            <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/Seler.java</file>
+            <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/Service/CatergoriService.java</file>
+
+
             <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Model/Sellers.java</file>
             <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Dao/Connection.java</file>
             <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/Dao/SellerDao.java</file>
@@ -47,6 +53,7 @@
             <file>file:/C:/Users/HP/Desktop/MiniSuperMarket/src/view/Seler.java</file>
 
             <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/InterfaceLoadForm.java</file>
+
             <file>file:/C:/Users/HP/OneDrive/Máy%20tính/MiniSuperMarket/src/view/Categories.java</file>
 
 
