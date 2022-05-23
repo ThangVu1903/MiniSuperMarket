@@ -21,7 +21,7 @@ public class CategoryDao {
         public List<Category> getAllCategory(){
         List<Category> CaTe_TuanAnh = new ArrayList<Category>();
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "select * from seller";
+        String sql = "select * from category";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
@@ -57,14 +57,14 @@ public class CategoryDao {
         }
         return null;
     }
-     public void addSeller(Category seller) throws SQLException {
+     public void addCategory(Category category) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "INSERT INTO seller (IDCAT , NAME, DESCRIPTION) VALUES(?,?,?)";
+        String sql = "INSERT INTO category (IDCAT , NAME, DESCRIPTION) VALUES(?,?,?)";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, seller.getIdcat());
-            pstmt.setString(2, seller.getName());
-            pstmt.setString(3, seller.getDescription());
+            pstmt.setString(1, category.getIdcat());
+            pstmt.setString(2, category.getName());
+            pstmt.setString(3, category.getDescription());
            
             
 
@@ -76,21 +76,21 @@ public class CategoryDao {
             e.printStackTrace();
         }
     }
-      public void editSeller(Category seller) throws SQLException {
+      public void editcategory(Category category) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
         String sql = "UPDATE category SET IDCAT = ?,NAME = ?,DESCRIPTION = ?,";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, seller.getIdcat());
-            pstmt.setString(2, seller.getName());
-            pstmt.setString(3, seller.getDescription());
+            pstmt.setString(1, category.getIdcat());
+            pstmt.setString(2, category.getName());
+            pstmt.setString(3, category.getDescription());
             int rs = pstmt.executeUpdate();
             System.out.println(rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-       public void deleteSeller(String id) throws SQLException {
+       public void deletecategory(String id) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
 
         String sql = "delete from CATEGORY where IDCAT= ?";

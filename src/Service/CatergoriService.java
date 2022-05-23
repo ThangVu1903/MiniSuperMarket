@@ -14,24 +14,24 @@ import java.util.List;
  * @author HP
  */
 public class CatergoriService {
-    private CategoryDao sl;
+    private CategoryDao Ct;
 
     public CatergoriService() {
-        sl = new CategoryDao();
+        Ct = new CategoryDao();
     }
     public List<Category> getAllCattegories(){
-        return sl.getAllCategory();
+        return Ct.getAllCategory();
     }
     public Category getCategoryById(String id){
-        return sl.getCategoryById(id);
+        return Ct.getCategoryById(id);
     }
-    public void addSeller(Category sler) throws SQLException {
-        sl.addSeller(sler);
+    public void addCategory(Category sler) throws SQLException {
+        Ct.addCategory(sler);
     }
     public void editSeller(Category sler) throws SQLException {
-        sl.editSeller(sler);
+        Ct.editcategory(sler);
     }
     public void deleteSeller(String id) throws SQLException {
-        sl.deleteSeller(id);
+        Ct.deletecategory(id);
     }
 }

@@ -68,10 +68,10 @@ private void setTableData(List<Category> categorys){
         Txt_TuanAnh_CatName = new javax.swing.JTextField();
         CatDesc = new javax.swing.JLabel();
         Txt_TuanAnh_Desc = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        EditCategory_TuanAnh = new javax.swing.JButton();
         AddBtn_TuanAnh = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ClearCategory_TuanAnh = new javax.swing.JButton();
+        DeleteCategory_Tuananh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Category_table_Tuananh = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
@@ -128,10 +128,15 @@ private void setTableData(List<Category> categorys){
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 102, 0));
-        jButton1.setText("EDIT");
+        EditCategory_TuanAnh.setBackground(new java.awt.Color(255, 255, 255));
+        EditCategory_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        EditCategory_TuanAnh.setForeground(new java.awt.Color(255, 102, 0));
+        EditCategory_TuanAnh.setText("EDIT");
+        EditCategory_TuanAnh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditCategory_TuanAnhActionPerformed(evt);
+            }
+        });
 
         AddBtn_TuanAnh.setBackground(new java.awt.Color(255, 255, 255));
         AddBtn_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -143,20 +148,20 @@ private void setTableData(List<Category> categorys){
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 102, 0));
-        jButton3.setText("CLEAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ClearCategory_TuanAnh.setBackground(new java.awt.Color(255, 255, 255));
+        ClearCategory_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        ClearCategory_TuanAnh.setForeground(new java.awt.Color(255, 102, 0));
+        ClearCategory_TuanAnh.setText("CLEAR");
+        ClearCategory_TuanAnh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ClearCategory_TuanAnhActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 102, 0));
-        jButton4.setText("DELETE");
+        DeleteCategory_Tuananh.setBackground(new java.awt.Color(255, 255, 255));
+        DeleteCategory_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        DeleteCategory_Tuananh.setForeground(new java.awt.Color(255, 102, 0));
+        DeleteCategory_Tuananh.setText("DELETE");
 
         Category_table_Tuananh.setBackground(new java.awt.Color(255, 255, 255));
         Category_table_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -200,11 +205,11 @@ private void setTableData(List<Category> categorys){
                         .addGap(107, 107, 107)
                         .addComponent(AddBtn_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EditCategory_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(73, 73, 73)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DeleteCategory_Tuananh, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ClearCategory_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -245,9 +250,9 @@ private void setTableData(List<Category> categorys){
                     .addComponent(Txt_TuanAnh_Desc, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(EditCategory_TuanAnh)
+                    .addComponent(ClearCategory_TuanAnh)
+                    .addComponent(DeleteCategory_Tuananh)
                     .addComponent(AddBtn_TuanAnh))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,32 +315,65 @@ private void setTableData(List<Category> categorys){
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_TuanAnh_DescActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void ClearCategory_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearCategory_TuanAnhActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_ClearCategory_TuanAnhActionPerformed
 
     private void AddBtn_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtn_TuanAnhActionPerformed
+        
+    }//GEN-LAST:event_AddBtn_TuanAnhActionPerformed
+
+    private void EditCategory_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCategory_TuanAnhActionPerformed
+         int row = Category_table_Tuananh.getSelectedRow();
+        if (row == -1)//nguoi dung chua chon hang nao
+        {
+            JOptionPane.showMessageDialog(Categories.this, "Vui lòng chọn nhân viên cần sửa trước", "loi", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(Categories.this, "Bạn chắc chắn muốn chỉnh sửa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try {
+                    String slId = String.valueOf(Category_table_Tuananh.getValueAt(row, 0));
+
+                    slservice.deleteSeller(slId);
+
+                    defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+                    setTableData(slservice.getAllCattegories());
+                    //JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        }
         if (Txt_TuanAnh_CatId.getText().equals("") || Txt_TuanAnh_CatName.getText().equals("") || Txt_TuanAnh_Desc.getText().equals("")  ) {
             JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
         } else {
             try {
-                Ct.(Txt_TuanAnh_CatId.getText());
-                Ct.setName(Txt_TuanAnh_CatId.getText());
+               Ct.set
+                sl.setName(Txt_TuanAnh_CatName.getText());
 
-                Ct.set(Txt_TuanAnh_CatName.getText());
+                sl.setPassword(Txt_TuanAnh_Desc.getText());
                 
               
                 
-                slservice.addSeller(Ct);
-                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công!");
+                slservice.(Ct);
+                JOptionPane.showMessageDialog(this, "cập nhật sinh viên thành công!");
             } catch (SQLException ex) {
                 Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
             }
+
+        }
+        
+        
+        
+        
         defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
         setTableData(slservice.getAllCattegories());
-        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
-        } 
-    }//GEN-LAST:event_AddBtn_TuanAnhActionPerformed
+        
+    }//GEN-LAST:event_EditCategory_TuanAnhActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,14 +416,14 @@ private void setTableData(List<Category> categorys){
     private javax.swing.JLabel CatDesc;
     private javax.swing.JLabel CatID;
     private javax.swing.JTable Category_table_Tuananh;
+    private javax.swing.JButton ClearCategory_TuanAnh;
+    private javax.swing.JButton DeleteCategory_Tuananh;
+    private javax.swing.JButton EditCategory_TuanAnh;
     private javax.swing.JLabel LB_TuanAnh_FormName;
     private javax.swing.JLabel Name;
     private javax.swing.JTextField Txt_TuanAnh_CatId;
     private javax.swing.JTextField Txt_TuanAnh_CatName;
     private javax.swing.JTextField Txt_TuanAnh_Desc;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
