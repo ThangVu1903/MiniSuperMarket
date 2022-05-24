@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author HP
  */
 public class Categories extends javax.swing.JFrame {
- CatergoriService slservice;
+ CatergoriService Clservice;
     DefaultTableModel defaultTableModel;
     Categories Ct;
     /**
@@ -26,7 +26,7 @@ public class Categories extends javax.swing.JFrame {
      */
     public Categories() {
         initComponents();
-         slservice = new CatergoriService();
+         Clservice = new CatergoriService();
         Ct = new Categories();
         defaultTableModel = new DefaultTableModel() {
             @Override
@@ -43,7 +43,7 @@ public class Categories extends javax.swing.JFrame {
        
 
         
-        setTableData(slservice.getAllCattegories());
+        setTableData(Clservice.getAllCattegories());
     }
 private void setTableData(List<Category> categorys){
         for (Category Categories : categorys ){
@@ -336,10 +336,10 @@ private void setTableData(List<Category> categorys){
                 try {
                     String slId = String.valueOf(Category_table_Tuananh.getValueAt(row, 0));
 
-                    slservice.deleteSeller(slId);
+                    Clservice.deleteSeller(slId);
 
                     defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
-                    setTableData(slservice.getAllCattegories());
+                    setTableData(Clservice.getAllCattegories());
                     //JOptionPane.showMessageDialog(this, "Xóa thành công!");
                 } catch (SQLException ex) {
                     Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
@@ -352,14 +352,14 @@ private void setTableData(List<Category> categorys){
             JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
         } else {
             try {
-               Ct.set
-                sl.setName(Txt_TuanAnh_CatName.getText());
+               Ct.setIdcat(Txt_TuanAnh_CatId.getText());
+                Ct.setName(Txt_TuanAnh_CatName.getText());
 
-                sl.setPassword(Txt_TuanAnh_Desc.getText());
+                Ct.setDescription(Txt_TuanAnh_Desc.getText());
                 
               
                 
-                slservice.(Ct);
+               Clservice.(Ct);
                 JOptionPane.showMessageDialog(this, "cập nhật sinh viên thành công!");
             } catch (SQLException ex) {
                 Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
@@ -371,7 +371,7 @@ private void setTableData(List<Category> categorys){
         
         
         defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
-        setTableData(slservice.getAllCattegories());
+        setTableData(Clservice.getAllCattegories());
         
     }//GEN-LAST:event_EditCategory_TuanAnhActionPerformed
 

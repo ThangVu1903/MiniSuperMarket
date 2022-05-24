@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.Categories;
+
 /**
  *
  * @author HP
@@ -45,7 +45,7 @@ public class CategoryDao {
             preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                Category category = new Category();
+                
                 Category Category = new Category();
                 Category.setIdcat(rs.getString("ID"));
                 Category.setName(rs.getString("NAME"));
