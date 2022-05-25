@@ -88,11 +88,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel7">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\THANG\HK2\LapTrinhJavaNangCao\LyThuyet\Supermarket\src\image\shoppingLogin.png"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
@@ -158,9 +153,9 @@
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="SelectCombobox337" alignment="1" max="32767" attributes="0"/>
-                              <Component id="PassTF337" max="32767" attributes="0"/>
-                              <Component id="UserNameTF337" alignment="1" max="32767" attributes="0"/>
+                              <Component id="SelectCombobox133" alignment="1" max="32767" attributes="0"/>
+                              <Component id="PassTF113" max="32767" attributes="0"/>
+                              <Component id="UserNameTF133" alignment="1" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
@@ -171,9 +166,9 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                          <Component id="ClearBtn338" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="ClearBtn133" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="LoginBtn337" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="LoginBtn133" min="-2" pref="100" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -203,23 +198,23 @@
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SelectCombobox337" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SelectCombobox133" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="UserNameTF337" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="UserNameTF133" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="PassTF337" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="PassTF113" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="LoginBtn337" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="ClearBtn338" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="LoginBtn133" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="ClearBtn133" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" pref="39" max="-2" attributes="0"/>
@@ -240,17 +235,17 @@
             <Property name="text" type="java.lang.String" value="Select Role"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="UserNameTF337">
+        <Component class="javax.swing.JTextField" name="UserNameTF133">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="14" style="1"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserNameTF337ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UserNameTF133ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JComboBox" name="SelectCombobox337">
+        <Component class="javax.swing.JComboBox" name="SelectCombobox133">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Gothic" size="18" style="3"/>
@@ -269,7 +264,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="PassTF337">
+        <Component class="javax.swing.JPasswordField" name="PassTF113">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -321,7 +316,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitBtn337ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="LoginBtn337">
+        <Component class="javax.swing.JButton" name="LoginBtn133">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -334,6 +329,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Login"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginBtn133ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -347,13 +345,8 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\THANG\HK2\LapTrinhJavaNangCao\LyThuyet\Supermarket\src\image\online-shopping.png"/>
-            </Property>
-          </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="ClearBtn338">
+        <Component class="javax.swing.JButton" name="ClearBtn133">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -366,6 +359,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Clear"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ClearBtn133ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

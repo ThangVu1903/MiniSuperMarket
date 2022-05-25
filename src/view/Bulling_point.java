@@ -21,37 +21,37 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Bulling_point extends javax.swing.JFrame {
 
-    bullingpointservice slbullingpoint;
-    DefaultTableModel defaultTableModel;
-    bullingpoints sl;
+    bullingpointservice slbullingpoint_113;
+    DefaultTableModel defaultTableModel_113;
+    bullingpoints sl_113;
     /**
      * Creates new form Bulling_point
      */
     public Bulling_point() {
         initComponents();
-        slbullingpoint = new bullingpointservice();
-        sl = new bullingpoints();
-        defaultTableModel = new DefaultTableModel() {
+        slbullingpoint_113 = new bullingpointservice();
+        sl_113 = new bullingpoints();
+        defaultTableModel_113 = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
             
         };
-        tbbang.setModel(defaultTableModel);
+        tbbang.setModel(defaultTableModel_113);
         
-        defaultTableModel.addColumn("PRODID");
-        defaultTableModel.addColumn("PRODNAME");
-        defaultTableModel.addColumn("PRODQTY");
-        defaultTableModel.addColumn("PRODPRICE");
-        defaultTableModel.addColumn("PRODCAT");
+        defaultTableModel_113.addColumn("PRODID");
+        defaultTableModel_113.addColumn("PRODNAME");
+        defaultTableModel_113.addColumn("PRODQTY");
+        defaultTableModel_113.addColumn("PRODPRICE");
+        defaultTableModel_113.addColumn("PRODCAT");
         
-        setTableData(slbullingpoint.getAllbullingpoints());
+        setTableData(slbullingpoint_113.getAllbullingpoints());
     }
 
     private void setTableData(List<bullingpoints> Bullingpoints){
         Bullingpoints.forEach(bullingpoint -> {
-            defaultTableModel.addRow(new Object[]{bullingpoint.getProdid()  , bullingpoint.getProdname() , bullingpoint.getProdqty() , bullingpoint.getProdprice() ,  bullingpoint.getProdcat()});
+            defaultTableModel_113.addRow(new Object[]{bullingpoint.getProdid()  , bullingpoint.getProdname() , bullingpoint.getProdqty() , bullingpoint.getProdprice() ,  bullingpoint.getProdcat()});
         });
     }
     /**
@@ -89,6 +89,7 @@ public class Bulling_point extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1283, 830));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
                 formComponentShown(evt);
@@ -108,15 +109,15 @@ public class Bulling_point extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 3, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
         jLabel1.setText("BULLING POINT");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 102, 0));
         jLabel2.setText("NAME");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 102, 0));
         jLabel3.setText("QUANTITY");
 
@@ -127,7 +128,7 @@ public class Bulling_point extends javax.swing.JFrame {
         txtquantity.setForeground(new java.awt.Color(255, 102, 0));
 
         btnadd.setBackground(new java.awt.Color(255, 102, 0));
-        btnadd.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnadd.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         btnadd.setForeground(new java.awt.Color(255, 255, 255));
         btnadd.setText("Add to bill");
         btnadd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -142,7 +143,7 @@ public class Bulling_point extends javax.swing.JFrame {
         });
 
         btnclear.setBackground(new java.awt.Color(255, 102, 0));
-        btnclear.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        btnclear.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         btnclear.setForeground(new java.awt.Color(255, 255, 255));
         btnclear.setText("Clear");
         btnclear.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -156,7 +157,7 @@ public class Bulling_point extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("PRODUCTS LIST");
 
@@ -168,7 +169,7 @@ public class Bulling_point extends javax.swing.JFrame {
         });
 
         bntrefresh.setBackground(new java.awt.Color(255, 102, 0));
-        bntrefresh.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        bntrefresh.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         bntrefresh.setForeground(new java.awt.Color(255, 255, 255));
         bntrefresh.setText("Refresh");
         bntrefresh.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -201,7 +202,7 @@ public class Bulling_point extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbbang);
 
         bntprint.setBackground(new java.awt.Color(255, 102, 0));
-        bntprint.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        bntprint.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         bntprint.setForeground(new java.awt.Color(255, 255, 255));
         bntprint.setText("Print");
         bntprint.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -221,18 +222,18 @@ public class Bulling_point extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(Billtxt);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("BILLID");
 
         txtbillid.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         txtbillid.setForeground(new java.awt.Color(255, 102, 0));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 102, 51));
         jLabel8.setText("Fillter by");
 
-        Rrdtotallbl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        Rrdtotallbl.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
         Rrdtotallbl.setForeground(new java.awt.Color(255, 102, 0));
         Rrdtotallbl.setText("Rs");
 
@@ -242,11 +243,6 @@ public class Bulling_point extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btnadd)
-                        .addGap(58, 58, 58)
-                        .addComponent(btnclear))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,83 +258,84 @@ public class Bulling_point extends javax.swing.JFrame {
                                     .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 212, Short.MAX_VALUE)
+                                .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(btnadd)
+                        .addGap(58, 58, 58)
+                        .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(327, 327, 327))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))
-                        .addGap(35, 35, 35))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE))
+                        .addGap(35, 35, 35))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(55, 55, 55)
+                                .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(74, 74, 74)
+                        .addComponent(bntrefresh)
+                        .addContainerGap(59, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Rrdtotallbl)
+                .addGap(344, 344, 344))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(397, 397, 397)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(228, 228, 228))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bntrefresh)
-                                .addGap(66, 66, 66))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Rrdtotallbl)
-                            .addComponent(bntprint, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(237, 237, 237))))
+                .addComponent(bntprint, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
+                        .addGap(84, 84, 84)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bntrefresh)
-                            .addComponent(jLabel8)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(txtbillid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(Catcb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtquantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(36, 36, 36)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnadd)
-                            .addComponent(btnclear)))
+                            .addComponent(btnadd, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnclear, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)
+                        .addComponent(bntrefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Rrdtotallbl)
                 .addGap(18, 18, 18)
-                .addComponent(bntprint)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(bntprint, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("LOGOUT");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -352,25 +349,25 @@ public class Bulling_point extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtxX))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtxX, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtxX, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel6)))
+                .addComponent(txtxX, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(137, 137, 137)
+                .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -378,11 +375,13 @@ public class Bulling_point extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 694, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -410,21 +409,21 @@ public class Bulling_point extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bntprintMouseClicked
 
-Double Uprice,ProdTot=0.0,GrdTotal=0.0;
-int AvailQty;int i = 0;
-//int Prid, newQty;
+Double Uprice_113,ProdTot_113=0.0,GrdTotal_113=0.0;
+int AvailQty_113;int i = 0;
+
     private void tbbangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbbangMouseClicked
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)tbbang.getModel();
 
         int myindex = tbbang.getSelectedRow();
-        //Prid = Integer.valueOf(model.getValueAt(myindex, 0).toString());
+       
         txtname.setText(model.getValueAt(myindex, 1).toString());
-        AvailQty = Integer.valueOf(model.getValueAt(myindex, 2).toString());
-        //newQty = AvailQty - Integer.valueOf(txtquantity.getText());
-        Uprice = Double.valueOf(model.getValueAt(myindex, 3).toString());
+        AvailQty_113 = Integer.valueOf(model.getValueAt(myindex, 2).toString());
         
-        ProdTot = Uprice * Integer.valueOf(txtquantity.getText());
+        Uprice_113 = Double.valueOf(model.getValueAt(myindex, 3).toString());
+        
+        ProdTot_113 = Uprice_113 * Integer.valueOf(txtquantity.getText());
     }//GEN-LAST:event_tbbangMouseClicked
 
     private void bntrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntrefreshActionPerformed
@@ -463,22 +462,22 @@ int AvailQty;int i = 0;
         {
             JOptionPane.showMessageDialog(this,"Missing Information");
         }
-        else if(AvailQty <= Integer.valueOf(txtquantity.getText()))
+        else if(AvailQty_113 <= Integer.valueOf(txtquantity.getText()))
         {
             JOptionPane.showMessageDialog(this,"Not Enough In Stock");
         }
         else{
             i++;
-            ProdTot = Uprice * Double.valueOf(txtquantity.getText());
-            GrdTotal = GrdTotal + ProdTot;
+            ProdTot_113 = Uprice_113 * Double.valueOf(txtquantity.getText());
+            GrdTotal_113 = GrdTotal_113 + ProdTot_113;
             if(i==1)
             {
-                Billtxt.setText(Billtxt.getText()+ "    ===========FAMILY POINT========  \n"+" NUM    PRODUCT    PRICE    QUANTITY    TOTAL\n"+i+"       "+ txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
+                Billtxt.setText(Billtxt.getText()+ "    ===========FAMILY POINT========  \n"+" NUM    PRODUCT    PRICE    QUANTITY    TOTAL\n"+i+"       "+ txtname.getText()+"       "+Uprice_113+"       "+txtquantity.getText()+"       "+ProdTot_113+"\n");
             }
             else{
-                Billtxt.setText(Billtxt.getText()+i+"  "+txtname.getText()+"       "+Uprice+"       "+txtquantity.getText()+"       "+ProdTot+"\n");
+                Billtxt.setText(Billtxt.getText()+i+"  "+txtname.getText()+"       "+Uprice_113+"       "+txtquantity.getText()+"       "+ProdTot_113+"\n");
             }
-            Rrdtotallbl.setText("Rs" + GrdTotal);
+            Rrdtotallbl.setText("Rs" + GrdTotal_113);
         }
     }//GEN-LAST:event_btnaddMouseClicked
 
