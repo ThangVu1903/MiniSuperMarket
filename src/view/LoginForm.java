@@ -4,6 +4,14 @@
  */
 package view;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Administrator
@@ -33,24 +41,22 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        UserNameTF337 = new javax.swing.JTextField();
-        SelectCombobox337 = new javax.swing.JComboBox<>();
-        PassTF337 = new javax.swing.JPasswordField();
+        UserNameTF133 = new javax.swing.JTextField();
+        SelectCombobox133 = new javax.swing.JComboBox<>();
+        PassTF113 = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         ExitBtn337 = new javax.swing.JButton();
-        LoginBtn337 = new javax.swing.JButton();
+        LoginBtn133 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        ClearBtn338 = new javax.swing.JButton();
+        ClearBtn133 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\THANG\\HK2\\LapTrinhJavaNangCao\\LyThuyet\\Supermarket\\src\\image\\shoppingLogin.png")); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Century Schoolbook", 1, 24)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,16 +109,16 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 102, 0));
         jLabel1.setText("Select Role");
 
-        UserNameTF337.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        UserNameTF337.addActionListener(new java.awt.event.ActionListener() {
+        UserNameTF133.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        UserNameTF133.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameTF337ActionPerformed(evt);
+                UserNameTF133ActionPerformed(evt);
             }
         });
 
-        SelectCombobox337.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
-        SelectCombobox337.setForeground(new java.awt.Color(255, 102, 0));
-        SelectCombobox337.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "SELLER" }));
+        SelectCombobox133.setFont(new java.awt.Font("Century Gothic", 3, 18)); // NOI18N
+        SelectCombobox133.setForeground(new java.awt.Color(255, 102, 0));
+        SelectCombobox133.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "SELLER" }));
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 102, 0));
@@ -136,21 +142,29 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        LoginBtn337.setBackground(new java.awt.Color(255, 102, 0));
-        LoginBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        LoginBtn337.setForeground(new java.awt.Color(255, 255, 255));
-        LoginBtn337.setText("Login");
+        LoginBtn133.setBackground(new java.awt.Color(255, 102, 0));
+        LoginBtn133.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        LoginBtn133.setForeground(new java.awt.Color(255, 255, 255));
+        LoginBtn133.setText("Login");
+        LoginBtn133.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LoginBtn133ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Castellar", 2, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 102, 0));
         jLabel5.setText("TR-SU");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\THANG\\HK2\\LapTrinhJavaNangCao\\LyThuyet\\Supermarket\\src\\image\\online-shopping.png")); // NOI18N
-
-        ClearBtn338.setBackground(new java.awt.Color(255, 102, 0));
-        ClearBtn338.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        ClearBtn338.setForeground(new java.awt.Color(255, 255, 255));
-        ClearBtn338.setText("Clear");
+        ClearBtn133.setBackground(new java.awt.Color(255, 102, 0));
+        ClearBtn133.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        ClearBtn133.setForeground(new java.awt.Color(255, 255, 255));
+        ClearBtn133.setText("Clear");
+        ClearBtn133.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearBtn133ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -171,9 +185,9 @@ public class LoginForm extends javax.swing.JFrame {
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(SelectCombobox337, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PassTF337)
-                            .addComponent(UserNameTF337, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SelectCombobox133, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PassTF113)
+                            .addComponent(UserNameTF133, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addGap(74, 74, 74)
@@ -181,9 +195,9 @@ public class LoginForm extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(ClearBtn338, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ClearBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(LoginBtn337, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LoginBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17)))
                 .addGap(17, 17, 17))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -206,20 +220,20 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SelectCombobox337, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SelectCombobox133, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(UserNameTF337, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserNameTF133, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(PassTF337, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PassTF113, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LoginBtn337, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ClearBtn338, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LoginBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ClearBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12))
@@ -244,14 +258,71 @@ public class LoginForm extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void UserNameTF337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTF337ActionPerformed
+    private void UserNameTF133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTF133ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameTF337ActionPerformed
+    }//GEN-LAST:event_UserNameTF133ActionPerformed
 
     private void ExitBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBtn337ActionPerformed
 
         System.exit(0);
     }//GEN-LAST:event_ExitBtn337ActionPerformed
+
+    private void LoginBtn133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtn133ActionPerformed
+        // TODO add your handling code here:
+        String username = UserNameTF133.getText();
+        String password = String.valueOf(PassTF113.getPassword());
+        String option = SelectCombobox133.getSelectedItem().toString();
+        java.sql.Connection conn = dao.Connection.getJDBCConection();
+        if (username.equals("") || password.equals("") ) {
+            JOptionPane.showConfirmDialog(rootPane, "Some Fields Are is Empty", "Error", 1);
+        } else {
+            PreparedStatement pst = null;
+            String sql = "SELECT * FROM User WHERE USERNAME =  ? AND PASSWORD = ?";
+            try {
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, username);
+                pst.setString(2, password);
+                ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                    String s1 = resultSet.getString("ROLE");
+                    if (option.equalsIgnoreCase("ADMIN") && s1.equalsIgnoreCase("Admin")) {
+                        JOptionPane.showMessageDialog(null, "Login Successfully");
+                        new ManageProductForm().setVisible(true);
+                        this.dispose();
+                        
+                    }
+                    else if (option.equalsIgnoreCase("SELLER") && s1.equalsIgnoreCase("User")) {
+                        JOptionPane.showMessageDialog(null, "Login Successfully");
+                    } else {
+                        JOptionPane.showConfirmDialog(rootPane, "User Name or Password not Matched", "Login Error", 1);
+                    }
+                }
+            
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                if (pst != null) {
+                    try {
+                        pst.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (conn !=null) {
+                    try {
+                        conn.close();
+                    } catch (SQLException ex) {
+                        Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_LoginBtn133ActionPerformed
+
+    private void ClearBtn133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtn133ActionPerformed
+        UserNameTF133.setText("");
+        PassTF113.setText("");
+    }//GEN-LAST:event_ClearBtn133ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,12 +361,12 @@ public class LoginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ClearBtn338;
+    private javax.swing.JButton ClearBtn133;
     private javax.swing.JButton ExitBtn337;
-    private javax.swing.JButton LoginBtn337;
-    private javax.swing.JPasswordField PassTF337;
-    private javax.swing.JComboBox<String> SelectCombobox337;
-    private javax.swing.JTextField UserNameTF337;
+    private javax.swing.JButton LoginBtn133;
+    private javax.swing.JPasswordField PassTF113;
+    private javax.swing.JComboBox<String> SelectCombobox133;
+    private javax.swing.JTextField UserNameTF133;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
