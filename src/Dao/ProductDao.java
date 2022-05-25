@@ -25,9 +25,9 @@ public class ProductDao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Product product = new Product();
-                product.setIdPr(rs.getString("idprod "));
+                product.setIdPr(rs.getString("idprod"));
                 product.setName(rs.getString("name"));
-                product.setQuantity(rs.getInt("	quantity"));
+                product.setQuantity(rs.getInt("quantity"));
                 product.setPrice(rs.getInt("price"));
                 product.setCategory(rs.getString("category"));
                 products.add(product);
@@ -46,9 +46,9 @@ public class ProductDao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Product product = new Product();
-                product.setIdPr(rs.getString("idprod "));
+                product.setIdPr(rs.getString("idprod"));
                 product.setName(rs.getString("name"));
-                product.setQuantity(rs.getInt("	quantity"));
+                product.setQuantity(rs.getInt("quantity"));
                 product.setPrice(rs.getInt("price"));
                 product.setCategory(rs.getString("category"));
                 return product;

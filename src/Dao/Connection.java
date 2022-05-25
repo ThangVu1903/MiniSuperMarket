@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  */
 public class Connection {
     public static java.sql.Connection getJDBCConection() {
-        final String url = "jdbc:mysql://localhost/minisupermar pullket";
+        final String url = "jdbc:mysql://localhost/minisupermarket";
         final String user = "root";
         final String password = "";
         try {
@@ -27,5 +27,13 @@ public class Connection {
             Logger.getLogger(Connection.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    public static void main(String[] args) throws SQLException {
+        java.sql.Connection connection = getJDBCConection();
+        if (connection != null) {
+            System.out.println("Data connection successful");
+        } else {
+            System.out.println("Data connection failed");
+        }
     }
 }

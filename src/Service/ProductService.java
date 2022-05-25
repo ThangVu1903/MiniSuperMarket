@@ -16,8 +16,8 @@ import model.Product;
 public class ProductService {
     private ProductDao productDao;
 
-    public ProductService(ProductDao productDao) {
-        this.productDao = productDao;
+    public ProductService() {
+        productDao = new ProductDao();
     }
     
     public List<Product> getAllproducts (){
@@ -37,4 +37,6 @@ public class ProductService {
     public void UpdateProduct(Product product) throws SQLException{
         productDao.editProduct(product);
     }
+
+  
 }

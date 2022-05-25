@@ -27,9 +27,9 @@ public class CategoryDao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Category Category = new Category();
-                Category.setIdcat(rs.getString("ID"));
-                Category.setName(rs.getString("NAME"));
-                Category.setDescription(rs.getString("Desc"));
+                Category.setIdcat(rs.getString("idcat"));
+                Category.setName(rs.getString("name"));
+                Category.setDescription(rs.getString("Description"));
                 CaTe_TuanAnh.add(Category);
             }
         } catch (SQLException ex) {
