@@ -37,10 +37,10 @@ public class Seler extends javax.swing.JFrame {
         };
         sellertable.setModel(defaultTableModel);
         
-        defaultTableModel.addColumn("ID");
-        defaultTableModel.addColumn("NAME");
-        defaultTableModel.addColumn("PASSWORD");
-        defaultTableModel.addColumn("GENDER");
+        defaultTableModel.addColumn("idSeller");
+        defaultTableModel.addColumn("name");
+        defaultTableModel.addColumn("name");
+        defaultTableModel.addColumn("gender");
 
         
         setTableData(slservice.getAllSellers());
