@@ -28,4 +28,12 @@ public class Connection {
         }
         return null;
     }
+    public static void main(String[] args) throws SQLException {
+        java.sql.Connection connection = getJDBCConection();
+        if (connection != null) {
+            System.out.println("Data connection successful");
+        } else {
+            System.out.println("Data connection failed");
+        }
+    }
 }

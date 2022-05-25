@@ -44,10 +44,17 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+<<<<<<< HEAD
+                  <EmptySpace pref="100" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel1" alignment="1" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jPanel2" alignment="1" min="-2" max="-2" attributes="0"/>
+=======
                   <EmptySpace pref="103" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                       <Component id="btnexit" min="-2" pref="51" max="-2" attributes="0"/>
+>>>>>>> 0bd4b2e757fec6356b60e0f03c4e4e961a6efbd4
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
