@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import view.Categories;
+
 /**
  *
  * @author HP
@@ -21,15 +21,15 @@ public class CategoryDao {
         public List<Category> getAllCategory(){
         List<Category> CaTe_TuanAnh = new ArrayList<Category>();
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "select * from seller";
+        String sql = "select * from category";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Category Category = new Category();
-                Category.setIdcat(rs.getString("ID"));
-                Category.setName(rs.getString("NAME"));
-                Category.setDescription(rs.getString("Desc"));
+                Category.setIdcat(rs.getString("idcat"));
+                Category.setName(rs.getString("name"));
+                Category.setDescription(rs.getString("Description"));
                 CaTe_TuanAnh.add(Category);
             }
         } catch (SQLException ex) {
@@ -45,7 +45,7 @@ public class CategoryDao {
             preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-                Category category = new Category();
+                
                 Category Category = new Category();
                 Category.setIdcat(rs.getString("ID"));
                 Category.setName(rs.getString("NAME"));
@@ -57,14 +57,14 @@ public class CategoryDao {
         }
         return null;
     }
-     public void addSeller(Category seller) throws SQLException {
+     public void addCategory(Category category) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "INSERT INTO seller (IDCAT , NAME, DESCRIPTION) VALUES(?,?,?)";
+        String sql = "INSERT INTO category (IDCAT , NAME, DESCRIPTION) VALUES(?,?,?)";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, seller.getIdcat());
-            pstmt.setString(2, seller.getName());
-            pstmt.setString(3, seller.getDescription());
+            pstmt.setString(1, category.getIdcat());
+            pstmt.setString(2, category.getName());
+            pstmt.setString(3, category.getDescription());
            
             
 
@@ -76,21 +76,21 @@ public class CategoryDao {
             e.printStackTrace();
         }
     }
-      public void editSeller(Category seller) throws SQLException {
+      public void editcategory(Category category) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
         String sql = "UPDATE category SET IDCAT = ?,NAME = ?,DESCRIPTION = ?,";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1, seller.getIdcat());
-            pstmt.setString(2, seller.getName());
-            pstmt.setString(3, seller.getDescription());
+            pstmt.setString(1, category.getIdcat());
+            pstmt.setString(2, category.getName());
+            pstmt.setString(3, category.getDescription());
             int rs = pstmt.executeUpdate();
             System.out.println(rs);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-       public void deleteSeller(String id) throws SQLException {
+       public void deletecategory(String id) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
 
         String sql = "delete from CATEGORY where IDCAT= ?";

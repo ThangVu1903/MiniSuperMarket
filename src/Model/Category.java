@@ -16,7 +16,6 @@ public class Category {
     public String getIdcat() {
         return idcat;
     }
-
     public void setIdcat(String idcat) {
         this.idcat = idcat;
     }
