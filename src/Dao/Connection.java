@@ -15,6 +15,7 @@ import java.util.logging.Logger;
  */
 public class Connection {
     public static java.sql.Connection getJDBCConection() {
+
         final String url = "jdbc:mysql://localhost/minisupermarket";
         final String user = "root";
         final String password = "";
