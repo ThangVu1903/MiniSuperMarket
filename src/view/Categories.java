@@ -82,7 +82,6 @@ private void setTableData(List<Category> categorys){
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 0));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setRequestFocusEnabled(false);
@@ -92,7 +91,6 @@ private void setTableData(List<Category> categorys){
         LB_TuanAnh_FormName.setForeground(new java.awt.Color(255, 102, 0));
         LB_TuanAnh_FormName.setText("MANAGE CATEGORIES");
 
-        Txt_TuanAnh_CatId.setBackground(new java.awt.Color(255, 255, 255));
         Txt_TuanAnh_CatId.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Txt_TuanAnh_CatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +106,6 @@ private void setTableData(List<Category> categorys){
         Name.setForeground(new java.awt.Color(255, 102, 0));
         Name.setText("NAME");
 
-        Txt_TuanAnh_CatName.setBackground(new java.awt.Color(255, 255, 255));
         Txt_TuanAnh_CatName.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Txt_TuanAnh_CatName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,7 +117,6 @@ private void setTableData(List<Category> categorys){
         CatDesc.setForeground(new java.awt.Color(255, 102, 0));
         CatDesc.setText("DESCRIPTION");
 
-        Txt_TuanAnh_Desc.setBackground(new java.awt.Color(255, 255, 255));
         Txt_TuanAnh_Desc.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Txt_TuanAnh_Desc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,12 +124,10 @@ private void setTableData(List<Category> categorys){
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 102, 0));
         jButton1.setText("EDIT");
 
-        AddBtn_TuanAnh.setBackground(new java.awt.Color(255, 255, 255));
         AddBtn_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         AddBtn_TuanAnh.setForeground(new java.awt.Color(255, 102, 0));
         AddBtn_TuanAnh.setText("ADD");
@@ -143,7 +137,6 @@ private void setTableData(List<Category> categorys){
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 102, 0));
         jButton3.setText("CLEAR");
@@ -153,14 +146,11 @@ private void setTableData(List<Category> categorys){
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 102, 0));
         jButton4.setText("DELETE");
 
-        Category_table_Tuananh.setBackground(new java.awt.Color(255, 255, 255));
         Category_table_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        Category_table_Tuananh.setForeground(new java.awt.Color(0, 0, 0));
         Category_table_Tuananh.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -173,11 +163,8 @@ private void setTableData(List<Category> categorys){
             }
         ));
         Category_table_Tuananh.setGridColor(new java.awt.Color(120, 120, 120));
-        Category_table_Tuananh.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        Category_table_Tuananh.setRowHeight(25);
         Category_table_Tuananh.setSelectionBackground(new java.awt.Color(255, 102, 0));
         Category_table_Tuananh.setSelectionForeground(new java.awt.Color(255, 255, 255));
-        Category_table_Tuananh.setShowGrid(true);
         jScrollPane1.setViewportView(Category_table_Tuananh);
 
         jLabel8.setBackground(new java.awt.Color(240, 240, 240));
@@ -266,7 +253,7 @@ private void setTableData(List<Category> categorys){
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
+                .addContainerGap(188, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))

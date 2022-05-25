@@ -65,9 +65,9 @@ public class ProductDao {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, product.getIdPr());
             pstmt.setString(2, product.getName());
-            pstmt.setString(3, String.valueOf(product.getQuantity()));
-            pstmt.setString(4, String.valueOf(product.getPrice()));
-            pstmt.setString(4, product.getCategory());
+            pstmt.setInt(3, product.getQuantity());
+            pstmt.setInt(4, product.getPrice());
+            pstmt.setString(5, product.getCategory());
             
             int rs = pstmt.executeUpdate();
             System.out.println(rs);
@@ -83,8 +83,8 @@ public class ProductDao {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, product.getIdPr());
             pstmt.setString(2, product.getName());
-            pstmt.setString(3, String.valueOf(product.getQuantity()));
-            pstmt.setString(4, String.valueOf(product.getPrice()));
+            pstmt.setInt(3, product.getQuantity());
+            pstmt.setInt(4, product.getPrice());
             pstmt.setString(5, product.getCategory());
             int rs = pstmt.executeUpdate();
             System.out.println(rs);

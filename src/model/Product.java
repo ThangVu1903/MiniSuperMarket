@@ -53,7 +53,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
