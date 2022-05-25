@@ -437,7 +437,7 @@ private void setTableData(List<Sellers> sellers){
 
     private void btnexitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnexitActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_btnexitActionPerformed
 
     /**
