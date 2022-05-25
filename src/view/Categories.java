@@ -20,14 +20,14 @@ import javax.swing.table.DefaultTableModel;
 public class Categories extends javax.swing.JFrame {
  CatergoriService Clservice;
     DefaultTableModel defaultTableModel;
-    Categories Ct;
+    Category Ct;
     /**
      * Creates new form DanhMucQuanLy
      */
     public Categories() {
         initComponents();
          Clservice = new CatergoriService();
-        Ct = new Categories();
+        Ct = new Category();
         defaultTableModel = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -59,7 +59,7 @@ private void setTableData(List<Category> categorys){
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        Jp_FormCate_TuanAnh = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         LB_TuanAnh_FormName = new javax.swing.JLabel();
         Txt_TuanAnh_CatId = new javax.swing.JTextField();
@@ -74,15 +74,15 @@ private void setTableData(List<Category> categorys){
         DeleteCategory_Tuananh = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Category_table_Tuananh = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
+        ProDuct_list_TuanAnh = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(240, 240, 240));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 102, 0));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
+        Jp_FormCate_TuanAnh.setBackground(new java.awt.Color(255, 102, 0));
+        Jp_FormCate_TuanAnh.setForeground(new java.awt.Color(0, 0, 0));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setRequestFocusEnabled(false);
@@ -162,6 +162,11 @@ private void setTableData(List<Category> categorys){
         DeleteCategory_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         DeleteCategory_Tuananh.setForeground(new java.awt.Color(255, 102, 0));
         DeleteCategory_Tuananh.setText("DELETE");
+        DeleteCategory_Tuananh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteCategory_TuananhActionPerformed(evt);
+            }
+        });
 
         Category_table_Tuananh.setBackground(new java.awt.Color(255, 255, 255));
         Category_table_Tuananh.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -185,11 +190,11 @@ private void setTableData(List<Category> categorys){
         Category_table_Tuananh.setShowGrid(true);
         jScrollPane1.setViewportView(Category_table_Tuananh);
 
-        jLabel8.setBackground(new java.awt.Color(240, 240, 240));
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 102, 0));
-        jLabel8.setText("PRODUCT LIST");
-        jLabel8.setToolTipText("");
+        ProDuct_list_TuanAnh.setBackground(new java.awt.Color(240, 240, 240));
+        ProDuct_list_TuanAnh.setFont(new java.awt.Font("Century Gothic", 1, 20)); // NOI18N
+        ProDuct_list_TuanAnh.setForeground(new java.awt.Color(255, 102, 0));
+        ProDuct_list_TuanAnh.setText("PRODUCT LIST");
+        ProDuct_list_TuanAnh.setToolTipText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -197,7 +202,7 @@ private void setTableData(List<Category> categorys){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(327, 327, 327)
-                .addComponent(jLabel8)
+                .addComponent(ProDuct_list_TuanAnh)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -255,7 +260,7 @@ private void setTableData(List<Category> categorys){
                     .addComponent(DeleteCategory_Tuananh)
                     .addComponent(AddBtn_TuanAnh))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ProDuct_list_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(103, 103, 103))
@@ -266,20 +271,20 @@ private void setTableData(List<Category> categorys){
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("X");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout Jp_FormCate_TuanAnhLayout = new javax.swing.GroupLayout(Jp_FormCate_TuanAnh);
+        Jp_FormCate_TuanAnh.setLayout(Jp_FormCate_TuanAnhLayout);
+        Jp_FormCate_TuanAnhLayout.setHorizontalGroup(
+            Jp_FormCate_TuanAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Jp_FormCate_TuanAnhLayout.createSequentialGroup()
                 .addContainerGap(106, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(Jp_FormCate_TuanAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        Jp_FormCate_TuanAnhLayout.setVerticalGroup(
+            Jp_FormCate_TuanAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jp_FormCate_TuanAnhLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -290,12 +295,12 @@ private void setTableData(List<Category> categorys){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Jp_FormCate_TuanAnh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Jp_FormCate_TuanAnh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -317,10 +322,41 @@ private void setTableData(List<Category> categorys){
 
     private void ClearCategory_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearCategory_TuanAnhActionPerformed
         // TODO add your handling code here:
+        Txt_TuanAnh_CatId.setText("");
+        Txt_TuanAnh_CatName.setText("");
+        Txt_TuanAnh_Desc.setText("");
+    }                                        
+
+    private void sellertableMouseClicked(java.awt.event.MouseEvent evt) {                                         
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)Category_table_Tuananh.getModel();
+        int myindex = Category_table_Tuananh.getSelectedRow();
+        Txt_TuanAnh_CatId.setText(model.getValueAt(myindex, 0).toString());
+        Txt_TuanAnh_CatName.setText(model.getValueAt(myindex, 1).toString());
+        Txt_TuanAnh_Desc.setText(model.getValueAt(myindex, 2).toString());
     }//GEN-LAST:event_ClearCategory_TuanAnhActionPerformed
 
     private void AddBtn_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBtn_TuanAnhActionPerformed
-        
+        if (Txt_TuanAnh_CatId.getText().equals("") || Txt_TuanAnh_CatName.getText().equals("") || Txt_TuanAnh_Desc.getText().equals("")  ) {
+            JOptionPane.showMessageDialog(this, "Vui lòng điền đầy đủ thông tin!");
+        } else {
+            try {
+                Ct.setIdcat(Txt_TuanAnh_CatId.getText());
+                Ct.setName(Txt_TuanAnh_CatName.getText());
+
+                Ct.setDescription(Txt_TuanAnh_Desc.getText());
+                
+              
+                
+                Clservice.addCategory(Ct);
+                JOptionPane.showMessageDialog(this, "Thêm sinh viên thành công!");
+            } catch (SQLException ex) {
+                Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+        setTableData(Clservice.getAllCattegories());
+        JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+        }
     }//GEN-LAST:event_AddBtn_TuanAnhActionPerformed
 
     private void EditCategory_TuanAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCategory_TuanAnhActionPerformed
@@ -359,7 +395,7 @@ private void setTableData(List<Category> categorys){
                 
               
                 
-               Clservice.(Ct);
+               Clservice.addCategory(Ct);
                 JOptionPane.showMessageDialog(this, "cập nhật sinh viên thành công!");
             } catch (SQLException ex) {
                 Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
@@ -374,6 +410,37 @@ private void setTableData(List<Category> categorys){
         setTableData(Clservice.getAllCattegories());
         
     }//GEN-LAST:event_EditCategory_TuanAnhActionPerformed
+
+    private void DeleteCategory_TuananhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCategory_TuananhActionPerformed
+        // TODO add your handling code here:
+         int row = Category_table_Tuananh.getSelectedRow();
+        if (row == -1)//nguoi dung chua chon hang nao
+        {
+            JOptionPane.showMessageDialog(Categories.this, "Vui lòng chọn nhân viên cần xóa trước", "loi", JOptionPane.ERROR_MESSAGE);
+
+        } else {
+            int confirm = JOptionPane.showConfirmDialog(Categories.this, "Bạn chắc chắn muốn xóa không?");
+            if (confirm == JOptionPane.YES_OPTION) {
+
+                try {
+                    String slId = String.valueOf(Category_table_Tuananh.getValueAt(row, 0));
+
+                    Clservice.deleteSeller(slId);
+
+                    defaultTableModel.setRowCount(0);//de xoa het du lieu hien tai
+                    setTableData(Clservice.getAllCattegories());
+                    JOptionPane.showMessageDialog(this, "Xóa thành công!");
+                } catch (SQLException ex) {
+                    Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else 
+                return ;
+
+            
+
+        }
+    }//GEN-LAST:event_DeleteCategory_TuananhActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,14 +486,14 @@ private void setTableData(List<Category> categorys){
     private javax.swing.JButton ClearCategory_TuanAnh;
     private javax.swing.JButton DeleteCategory_Tuananh;
     private javax.swing.JButton EditCategory_TuanAnh;
+    private javax.swing.JPanel Jp_FormCate_TuanAnh;
     private javax.swing.JLabel LB_TuanAnh_FormName;
     private javax.swing.JLabel Name;
+    private javax.swing.JLabel ProDuct_list_TuanAnh;
     private javax.swing.JTextField Txt_TuanAnh_CatId;
     private javax.swing.JTextField Txt_TuanAnh_CatName;
     private javax.swing.JTextField Txt_TuanAnh_Desc;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
