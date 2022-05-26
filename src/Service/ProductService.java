@@ -5,6 +5,7 @@
 package Service;
 
 import Dao.ProductDao;
+import java.sql.SQLException;
 import java.util.List;
 import model.Product;
 
@@ -15,8 +16,8 @@ import model.Product;
 public class ProductService {
     private ProductDao productDao;
 
-    public ProductService(ProductDao productDao) {
-        this.productDao = productDao;
+    public ProductService() {
+        productDao = new ProductDao();
     }
     
     public List<Product> getAllproducts (){
@@ -25,15 +26,17 @@ public class ProductService {
     public Product getProductById(String id ){
         return productDao.getProductById(id);
     }
-    public void addProduct(Product product){
+    public void addProduct(Product product) throws SQLException{
         productDao.addProduct(product);
     }
     
-    public void deleteProduct(String id){
+    public void deleteProduct(String id) throws SQLException{
         productDao.deleteProduct(id);
         
     }
-    public void UpdateProduct(Product product){
-        productDao.udate
+    public void UpdateProduct(Product product) throws SQLException{
+        productDao.editProduct(product);
     }
+
+  
 }

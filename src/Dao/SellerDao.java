@@ -17,19 +17,32 @@ import java.util.List;
  */
 public class SellerDao {
     public List<Sellers> getAllSellers(){
+
         List<Sellers> sl_diem_117 = new ArrayList<Sellers>();
+
+        List<Sellers> sl_diem_117= new ArrayList<Sellers>();
+
         java.sql.Connection con = Connection.getJDBCConection();
         String sql = "select * from seller";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+
+
+                Sellers seller = new Sellers();
+                seller.setId(rs.getString("idSeller"));
+                seller.setName(rs.getString("name"));
+                seller.setPassword(rs.getString("password"));
+                seller.setGender(rs.getString("gender"));
+                sl_diem.add(seller);
                 Sellers seller_117 = new Sellers();
                 seller_117.setId(rs.getString("idSeller"));
                 seller_117.setName(rs.getString("name"));
                 seller_117.setPassword(rs.getString("password"));
                 seller_117.setGender(rs.getString("gender"));
                 sl_diem_117.add(seller_117);
+
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -44,12 +57,23 @@ public class SellerDao {
             preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
+
+
+                Sellers seller = new Sellers();
+                seller.setId(rs.getString("idSeller"));
+                seller.setName(rs.getString("name"));
+                seller.setPassword(rs.getString("password"));
+                seller.setGender(rs.getString("gender"));
+                return seller;
+
+
                 Sellers seller_117 = new Sellers();
                 seller_117.setId(rs.getString("idSeller"));
                 seller_117.setName(rs.getString("name"));
                 seller_117.setPassword(rs.getString("password"));
                 seller_117.setGender(rs.getString("gender"));
                 return seller_117;
+
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -77,7 +101,11 @@ public class SellerDao {
     }
     public void editSeller(Sellers seller) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
+
         String sql = "UPDATE seller SET idSeller = ?,name = ?,password = ?, gender = ?";
+
+        String sql = "UPDATE seller SET idSeller = ?,name= ?,password = ?, gender = ?";
+
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, seller.getId());

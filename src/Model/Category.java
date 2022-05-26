@@ -9,33 +9,34 @@ package Model;
  * @author HP
  */
 public class Category {
-    private String CatId;
-    private String CatName;
-    private String CatDesc;
+    private String idcat;
+    private String name;
+    private String description;
 
-    public String getCatId() {
-        return CatId;
+    public String getIdcat() {
+        return idcat;
+    }
+    public void setIdcat(String idcat) {
+        this.idcat = idcat;
     }
 
-    public void setCatId(String CatId) {
-        this.CatId = CatId;
+    public String getName() {
+        return name;
     }
 
-    public String getCatName() {
-        return CatName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCatName(String CatName) {
-        this.CatName = CatName;
+    public String getDescription() {
+        return description;
     }
 
-    public String getCatDesc() {
-        return CatDesc;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setCatDesc(String CatDesc) {
-        this.CatDesc = CatDesc;
-    }
+    
 
     
    
