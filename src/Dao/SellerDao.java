@@ -25,10 +25,10 @@ public class SellerDao {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Sellers seller = new Sellers();
-                seller.setId(rs.getString("ID"));
-                seller.setName(rs.getString("NAME"));
-                seller.setPassword(rs.getString("PASSWORD"));
-                seller.setGender(rs.getString("GENDER"));
+                seller.setId(rs.getString("idSeller"));
+                seller.setName(rs.getString("name"));
+                seller.setPassword(rs.getString("password"));
+                seller.setGender(rs.getString("gender"));
                 sl_diem.add(seller);
             }
         } catch (SQLException ex) {
@@ -38,17 +38,17 @@ public class SellerDao {
     }
     public Sellers getSellerById(String id){
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "select * from data where id = ?";
+        String sql = "select * from data where idSeller = ?";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Sellers seller = new Sellers();
-                seller.setId(rs.getString("ID"));
-                seller.setName(rs.getString("NAME"));
-                seller.setPassword(rs.getString("PASSWORD"));
-                seller.setGender(rs.getString("GENDER"));
+                seller.setId(rs.getString("idSeller"));
+                seller.setName(rs.getString("name"));
+                seller.setPassword(rs.getString("password"));
+                seller.setGender(rs.getString("gender"));
                 return seller;
             }
         } catch (Exception e) {
@@ -58,7 +58,7 @@ public class SellerDao {
     }
     public void addSeller(Sellers seller) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "INSERT INTO seller (ID, NAME, PASSWORD, GENDER) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO seller (idSeller, name, password, gender) VALUES(?,?,?,?)";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, seller.getId());
@@ -77,7 +77,7 @@ public class SellerDao {
     }
     public void editSeller(Sellers seller) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "UPDATE seller SET ID = ?,NAME = ?,PASSWORD = ?, GENDER = ?";
+        String sql = "UPDATE seller SET idSeller = ?,name = ?,password = ?, gender = ?";
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1, seller.getId());
@@ -93,7 +93,7 @@ public class SellerDao {
     public void deleteSeller(String id) throws SQLException {
         java.sql.Connection con = Connection.getJDBCConection();
 
-        String sql = "delete from seller where ID= ?";
+        String sql = "delete from seller where idSeller= ?";
 
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
