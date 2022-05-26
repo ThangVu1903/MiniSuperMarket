@@ -17,25 +17,13 @@ import java.util.List;
  */
 public class SellerDao {
     public List<Sellers> getAllSellers(){
-
         List<Sellers> sl_diem_117 = new ArrayList<Sellers>();
-
-        List<Sellers> sl_diem_117= new ArrayList<Sellers>();
-
         java.sql.Connection con = Connection.getJDBCConection();
         String sql = "select * from seller";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-
-
-                Sellers seller = new Sellers();
-                seller.setId(rs.getString("idSeller"));
-                seller.setName(rs.getString("name"));
-                seller.setPassword(rs.getString("password"));
-                seller.setGender(rs.getString("gender"));
-                sl_diem.add(seller);
                 Sellers seller_117 = new Sellers();
                 seller_117.setId(rs.getString("idSeller"));
                 seller_117.setName(rs.getString("name"));
@@ -57,16 +45,6 @@ public class SellerDao {
             preparedStatement.setString(1, id);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
-
-
-                Sellers seller = new Sellers();
-                seller.setId(rs.getString("idSeller"));
-                seller.setName(rs.getString("name"));
-                seller.setPassword(rs.getString("password"));
-                seller.setGender(rs.getString("gender"));
-                return seller;
-
-
                 Sellers seller_117 = new Sellers();
                 seller_117.setId(rs.getString("idSeller"));
                 seller_117.setName(rs.getString("name"));
@@ -103,8 +81,6 @@ public class SellerDao {
         java.sql.Connection con = Connection.getJDBCConection();
 
         String sql = "UPDATE seller SET idSeller = ?,name = ?,password = ?, gender = ?";
-
-        String sql = "UPDATE seller SET idSeller = ?,name= ?,password = ?, gender = ?";
 
         try {
             PreparedStatement pstmt = con.prepareStatement(sql);

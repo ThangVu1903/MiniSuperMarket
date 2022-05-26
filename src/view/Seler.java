@@ -400,7 +400,7 @@ private void setTableData(List<Sellers> sellers){
         setTableData(slservice_117.getAllSellers());
         JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
 
-        setTableData(slservice.getAllSellers());
+        setTableData(slservice_117.getAllSellers());
         //JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
 
         }
