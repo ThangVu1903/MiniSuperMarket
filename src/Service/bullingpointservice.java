@@ -14,18 +14,18 @@ import java.util.List;
  * @author ADMIN
  */
 public class bullingpointservice {
-    private final bullingpointdao sl;
+    private final bullingpointdao sl_113;
 
     public bullingpointservice() {
-        sl = new bullingpointdao();
+        sl_113 = new bullingpointdao();
     }
     
     public List<bullingpoints> getAllbullingpoints(){
-        return sl.getAllbullingpoints();
+        return sl_113.getAllbullingpoints();
     }
     
     public List<bullingpoints> getbullingpointById(String Prodid){
-        return (List<bullingpoints>) sl.getbullingpointById(Prodid);
+        return (List<bullingpoints>) sl_113.getbullingpointById(Prodid);
     }
 
 }

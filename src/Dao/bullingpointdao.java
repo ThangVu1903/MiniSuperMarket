@@ -21,17 +21,17 @@ public class bullingpointdao {
     public List<bullingpoints> getAllbullingpoints(){
         List<bullingpoints> sl_chung = new ArrayList<>();
         java.sql.Connection con = Connection.getJDBCConection();
-        String sql = "select * from tblbullingpoint";
+        String sql = "select * from product";
         try {
             PreparedStatement preparedStatement = con.prepareStatement(sql);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 bullingpoints bullingpoint = new bullingpoints();
-                bullingpoint.setProdid(rs.getString("PRODID"));
-                bullingpoint.setProdname(rs.getString("PRODNAME"));
-                bullingpoint.setProdqty(rs.getString("PRODQTY"));
-                bullingpoint.setProdprice(rs.getString("PRODPRICE"));
-                bullingpoint.setProdcat(rs.getString("PRODCAT"));
+                bullingpoint.setProdid(rs.getString("idprod"));
+                bullingpoint.setProdname(rs.getString("name"));
+                bullingpoint.setProdqty(rs.getString("quantity"));
+                bullingpoint.setProdprice(rs.getString("price"));
+                bullingpoint.setProdcat(rs.getString("category"));
                 sl_chung.add(bullingpoint);
             }
         } catch (SQLException ex) {
