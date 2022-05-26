@@ -188,6 +188,11 @@ private void setTableData(List<Category> categorys){
         Category_table_Tuananh.setSelectionBackground(new java.awt.Color(255, 102, 0));
         Category_table_Tuananh.setSelectionForeground(new java.awt.Color(255, 255, 255));
         Category_table_Tuananh.setShowGrid(true);
+        Category_table_Tuananh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Category_table_TuananhMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(Category_table_Tuananh);
 
         ProDuct_list_TuanAnh.setBackground(new java.awt.Color(240, 240, 240));
@@ -453,6 +458,16 @@ private void setTableData(List<Category> categorys){
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Category_table_TuananhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Category_table_TuananhMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)Category_table_Tuananh.getModel(); 
+            int index = Category_table_Tuananh.getSelectedRow();
+            Txt_TuanAnh_CatId.setText(model.getValueAt(index, 0).toString());
+            Txt_TuanAnh_CatName.setText(model.getValueAt(index, 1).toString());
+            Txt_TuanAnh_Desc.setText(model.getValueAt(index, 2).toString());
+   
+    }//GEN-LAST:event_Category_table_TuananhMouseClicked
 
     /**
      * @param args the command line arguments
