@@ -14,24 +14,24 @@ import java.util.List;
  * @author HP
  */
 public class SellerService {
-    private SellerDao sl;
+    private SellerDao sl_117;
 
     public SellerService() {
-        sl = new SellerDao();
+        sl_117 = new SellerDao();
     }
     public List<Sellers> getAllSellers(){
-        return sl.getAllSellers();
+        return sl_117.getAllSellers();
     }
     public Sellers getSellerById(String id){
-        return sl.getSellerById(id);
+        return sl_117.getSellerById(id);
     }
     public void addSeller(Sellers sler) throws SQLException {
-        sl.addSeller(sler);
+        sl_117.addSeller(sler);
     }
     public void editSeller(Sellers sler) throws SQLException {
-        sl.editSeller(sler);
+        sl_117.editSeller(sler);
     }
     public void deleteSeller(String id) throws SQLException {
-        sl.deleteSeller(id);
+        sl_117.deleteSeller(id);
     }
 }
