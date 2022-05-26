@@ -200,6 +200,14 @@ private void setTableData(List<Category> categorys){
         Category_table_Tuananh.setGridColor(new java.awt.Color(120, 120, 120));
         Category_table_Tuananh.setSelectionBackground(new java.awt.Color(255, 102, 0));
         Category_table_Tuananh.setSelectionForeground(new java.awt.Color(255, 255, 255));
+
+        Category_table_Tuananh.setShowGrid(true);
+        Category_table_Tuananh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Category_table_TuananhMouseClicked(evt);
+            }
+        });
+
         jScrollPane1.setViewportView(Category_table_Tuananh);
 
         ProDuct_list_TuanAnh.setBackground(new java.awt.Color(240, 240, 240));
@@ -309,6 +317,13 @@ private void setTableData(List<Category> categorys){
             Jp_FormCate_TuanAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jp_FormCate_TuanAnhLayout.createSequentialGroup()
                 .addContainerGap(196, Short.MAX_VALUE)
+
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jp_FormCate_TuanAnhLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1))
+
                 .addGroup(Jp_FormCate_TuanAnhLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jp_FormCate_TuanAnhLayout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -316,6 +331,7 @@ private void setTableData(List<Category> categorys){
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jp_FormCate_TuanAnhLayout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
+
 
         );
         Jp_FormCate_TuanAnhLayout.setVerticalGroup(
@@ -484,6 +500,16 @@ private void setTableData(List<Category> categorys){
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void Category_table_TuananhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Category_table_TuananhMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)Category_table_Tuananh.getModel(); 
+            int index = Category_table_Tuananh.getSelectedRow();
+            Txt_TuanAnh_CatId.setText(model.getValueAt(index, 0).toString());
+            Txt_TuanAnh_CatName.setText(model.getValueAt(index, 1).toString());
+            Txt_TuanAnh_Desc.setText(model.getValueAt(index, 2).toString());
+   
+    }//GEN-LAST:event_Category_table_TuananhMouseClicked
 
     /**
      * @param args the command line arguments
