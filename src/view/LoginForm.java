@@ -47,11 +47,11 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        ExitBtn337 = new javax.swing.JButton();
         LoginBtn133 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         ClearBtn133 = new javax.swing.JButton();
+        lbExit337 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -76,25 +76,28 @@ public class LoginForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel7)
+                .addContainerGap(230, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel10))
-                    .addComponent(jLabel9))
-                .addGap(58, 58, 58))
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(jLabel10))
+                        .addComponent(jLabel9)))
+                .addGap(61, 61, 61))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(67, 67, 67)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -132,16 +135,6 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 102, 0));
         jLabel4.setText("LOGIN");
 
-        ExitBtn337.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        ExitBtn337.setForeground(new java.awt.Color(255, 102, 0));
-        ExitBtn337.setText("X");
-        ExitBtn337.setBorder(null);
-        ExitBtn337.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExitBtn337ActionPerformed(evt);
-            }
-        });
-
         LoginBtn133.setBackground(new java.awt.Color(255, 102, 0));
         LoginBtn133.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         LoginBtn133.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,6 +156,15 @@ public class LoginForm extends javax.swing.JFrame {
         ClearBtn133.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ClearBtn133ActionPerformed(evt);
+            }
+        });
+
+        lbExit337.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        lbExit337.setForeground(new java.awt.Color(255, 102, 0));
+        lbExit337.setText("    X");
+        lbExit337.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbExit337MouseClicked(evt);
             }
         });
 
@@ -190,13 +192,12 @@ public class LoginForm extends javax.swing.JFrame {
                             .addComponent(UserNameTF133, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
-                                .addGap(74, 74, 74)
-                                .addComponent(ExitBtn337, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbExit337, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(ClearBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addComponent(LoginBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(17, 17, 17)))
                 .addGap(17, 17, 17))
@@ -212,11 +213,11 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ExitBtn337, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lbExit337, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -230,7 +231,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PassTF113, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LoginBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ClearBtn133, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,11 +263,6 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UserNameTF133ActionPerformed
 
-    private void ExitBtn337ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitBtn337ActionPerformed
-
-        System.exit(0);
-    }//GEN-LAST:event_ExitBtn337ActionPerformed
-
     private void LoginBtn133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginBtn133ActionPerformed
         // TODO add your handling code here:
         String username = UserNameTF133.getText();
@@ -291,8 +287,10 @@ public class LoginForm extends javax.swing.JFrame {
                         this.dispose();
                         
                     }
-                    else if (option.equalsIgnoreCase("SELLER") && s1.equalsIgnoreCase("User")) {
+                    else if (option.equalsIgnoreCase("SELLER") && s1.equalsIgnoreCase("Seller")) {
                         JOptionPane.showMessageDialog(null, "Login Successfully");
+                        new ProductViewForm().setVisible(true);
+                        this.dispose();
                     } else {
                         JOptionPane.showConfirmDialog(rootPane, "User Name or Password not Matched", "Login Error", 1);
                     }
@@ -320,9 +318,13 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_LoginBtn133ActionPerformed
 
     private void ClearBtn133ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearBtn133ActionPerformed
-        UserNameTF133.setText("");
-        PassTF113.setText("");
+        
     }//GEN-LAST:event_ClearBtn133ActionPerformed
+
+    private void lbExit337MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbExit337MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_lbExit337MouseClicked
 
     /**
      * @param args the command line arguments
@@ -362,7 +364,6 @@ public class LoginForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ClearBtn133;
-    private javax.swing.JButton ExitBtn337;
     private javax.swing.JButton LoginBtn133;
     private javax.swing.JPasswordField PassTF113;
     private javax.swing.JComboBox<String> SelectCombobox133;
@@ -379,5 +380,6 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbExit337;
     // End of variables declaration//GEN-END:variables
 }
