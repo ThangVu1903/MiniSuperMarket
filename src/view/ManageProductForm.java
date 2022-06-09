@@ -462,7 +462,7 @@ public class ManageProductForm extends javax.swing.JFrame {
                     setTableData(productService.getAllproducts());
                     JOptionPane.showMessageDialog(this, "Xóa thành công!");
                 } catch (SQLException ex) {
-                    Logger.getLogger(Seler.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(Seler1.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
             else 
@@ -539,7 +539,7 @@ public class ManageProductForm extends javax.swing.JFrame {
     }//GEN-LAST:event_PriceTF337ActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        new Seler().setVisible(true);
+        new Seler1().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel13MouseClicked
 

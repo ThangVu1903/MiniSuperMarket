@@ -31,7 +31,7 @@ public class CatergoriService {
     public void editSeller(Category sler) throws SQLException {
         Ct.editcategory(sler);
     }
-    public void deleteSeller(String id) throws SQLException {
+    public void deleteCat(String id) throws SQLException {
         Ct.deletecategory(id);
     }
 }
